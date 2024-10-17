@@ -1,4 +1,5 @@
 # Data --------------------------------------------------------------------
+{
 # Librería
 library(readxl)
 library(tidyverse)
@@ -20,7 +21,7 @@ library(stargazer)
 library(devtools)
 library(usethis)
 library(sjPlot)
-
+}
 datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIA.xlsx")
 
 data <- na.omit(datos)
@@ -61,71 +62,54 @@ ggplot(datos, aes(x = consumo_ajustado, y = PIB)) +
   labs(title = "Impacto de las CONSUMO_AJUSTADO en el PIB", x = "PIB", y = "CONSUMO_AJUSTADO")
 
 
-# Gráfico de la Etapa 1: Remesas vs Consumo
-plot(datos$REMESAS, datos$CONSUMO, main = "Remesas vs Consumo")
-abline(modelo_etapa1, col = "red")
-
-# Gráfico de la Etapa 2: Consumo ajustado vs PIB
-plot(datos$consumo_ajustado, datos$PIB, main = "Consumo Ajustado vs PIB")
-abline(modelo_etapa2, col = "blue")
-
 # EXPORTAR DATOS ----------------------------------------------------------
 # Exportar los resultados en formato Word
-# Opción 1
+{
 # Exportar modelo a LaTeX, HTML o texto
-stargazer(modelo_etapa1, modelo_etapa2, 
-          type = "text",  # Cambiar a "html" o "latex" si es necesario
+stargazer(modelo_etapa1, modelo_indice_pib, 
+          type = "text",
           title = "Resultados de las Regresiones en Dos Etapas",
           align = TRUE, 
           dep.var.labels = c("Consumo Ajustado", "PIB"),
           covariate.labels = c("Remesas", "Consumo Ajustado"),
-          out = "resultados_regresion1.doc")  # Cambiar extensión según formato
-
-
-# Opción 2
+          out = "resultados_regresion1.html")  # Cambiar extensión según formato
+} # Opción 1
+{
 # Crear tabla para los modelos y exportarla a Word
-tab_model(modelo_etapa1, modelo_etapa2, 
+tab_model(modelo_etapa1, modelo_indice_pib, 
           title = "Resultados de las Regresiones",
-          dv.labels = c("Consumo Ajustado", "PIB"),
+          dv.labels = c("Consumo", "PIB"),
           show.ci = FALSE, 
           show.se = TRUE,  # Muestra errores estándar
           file = "resultados_regresion2.doc")  # Exporta a Word
-
-
-# Opción 2
-modelsummary(list("Etapa 1: Consumo Ajustado" = modelo_etapa1, 
-                  "Etapa 2: PIB" = modelo_etapa2),
-             output = "resultados_regresion.docx")
-
-
-# GRAFICAS POR CASOS ------------------------------------------------------
+} # Opción 2
 # MATRIZ DE CORRELACION ---------------------------------------------------
 # Creación de base de variables para matriz de correlacion
-Bs_correlacion<-data.frame(PIB=data$PIB,
-                           CONSUMO=data$CONSUMO,
-                           REMESAS=data$REMESAS,
-                           INVERSION=data$INVERSION,
-                           EXPORTACIONES=data$EXPORTACIONES,
-                           IMPORTACIONES=data$IMPORTACIONES,
-                           GASTO_PUBLICO=data$GASTO_PUBLICO)
+Bs_correlacion<-data.frame(PIB=datos$PIB,
+                           CONSUMO=datos$CONSUMO,
+                           REMESAS=datos$REMESAS,
+                           INVERSION=datos$INVERSION,
+                           EXPORTACIONES=datos$EXPORTACIONES,
+                           IMPORTACIONES=datos$IMPORTACIONES,
+                           GASTO_PUBLICO=datos$GASTO_PUBLICO)
+
 Matriz_Correl<-cor(Bs_correlacion)
+
 cor_melt <- melt(Matriz_Correl)
+
 ggplot(cor_melt, aes(x = Var1, y = Var2, fill = value)) +
   geom_tile() +
   scale_fill_gradient2(low = "red", high = "blue", mid = "white", midpoint = 0, limit = c(-1, 1)) +
   theme_minimal() +
   labs(title = "Matriz de Correlación", x = "", y = "") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
-print(Matriz_Correl)
+
 #Grafico de matriz de correlacion
 corrplot(Matriz_Correl)
-plot(Matriz_Correl)
-corrplot.mixed(Matriz_Correl
-               
-
 
 # LINEA DE TIEMPO ---------------------------------------------------------
-# Linea de tiempo para el gasto público
+{
+  # Linea de tiempo para el gasto público
 ggplot(data = datos, aes(x = TIEMPO, y = GASTO_PUBLICO)) +
   geom_line(color = "blue", size = 1.2) +    # Línea azul
   geom_point(color = "red", size = 3) +      # Puntos rojos
@@ -134,7 +118,8 @@ ggplot(data = datos, aes(x = TIEMPO, y = GASTO_PUBLICO)) +
        y = "Gasto Público (en millones)") +
   theme_minimal() +                          # Tema visual minimalista
   theme()
-
+}# Gráfico para el gasto público
+{
 # Linea de tiempo para las REMESAS
 ggplot(data = datos, aes(x = TIEMPO, y = REMESAS)) +
   geom_line(color = "blue", size = 1.2) +    # Línea azul
@@ -144,5 +129,5 @@ ggplot(data = datos, aes(x = TIEMPO, y = REMESAS)) +
        y = "Gasto Público (en millones)") +
   theme_minimal() +                          # Tema visual minimalista
   theme()
-
+}# Gráfico para las remesas
 
