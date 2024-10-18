@@ -104,7 +104,7 @@ Donde:
 
 # Resultados y discusión
 
-*(Nota: Los resultados y la discusión serán incorporados una vez finalizados los cálculos econométricos. Asegúrate de documentar la magnitud del impacto y discutir posibles variaciones en función de los factores económicos externos mencionados).*
+*(Nota: Los resultados y la discusión serán incorporados una vez finalizados los cálculos econométricos.  En este ambito se registará el impacto y discutir posibles variaciones en función de los factores económicos externos mencionados).*
 
 # Conclusiones
 
