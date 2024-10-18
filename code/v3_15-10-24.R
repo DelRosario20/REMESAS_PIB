@@ -21,10 +21,14 @@ library(stargazer)
 library(devtools)
 library(usethis)
 library(sjPlot)
+library(zoo)
 }
 datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIA.xlsx")
 
-data <- na.omit(datos)
+datos <- na.omit(datos)
+
+datos$TIEMPO <- as.Date(datos$TIEMPO)
+
 
 # Regresión en dos etapas -------------------------------------------------
 # Etapa 1: Ajustar el modelo de regresión para consumo
@@ -38,6 +42,8 @@ modelo_etapa2 <- lm(PIB ~ consumo_ajustado, data = datos)
 
 EXPORTA_NETAS <- datos$EXPORTACIONES-datos$IMPORTACIONES
 
+modelo_basico <- lm(PIB ~ CONSUMO + GASTO_PUBLICO + INVERSION + EXPORTA_NETAS, data = datos)
+
 modelo_indice_pib <- lm(PIB ~ consumo_ajustado + GASTO_PUBLICO + INVERSION + EXPORTA_NETAS, data = datos)
 
 
@@ -48,18 +54,23 @@ summary(modelo_etapa2)
 
 summary(modelo_indice_pib)
 
+summary(modelo_basico)
+
+summary(datos$consumo_ajustado) 
+summary(datos$CONSUMO) 
+
 # Visualización de la relación
 # Visualización de la relación entre REMESAS y CONSUMO
-ggplot(datos, aes(x = CONSUMO, y = REMESAS)) +
+ggplot(datos, aes(x = CONSUMO, y = PIB)) +
   geom_point() +
   geom_smooth(method = "lm", col = "blue") +
-  labs(title = "Impacto de las REMESAS en el CONSUMO", x = "Remesas", y = "Consumo")
+  labs(title = "Impacto de las REMESAS en el CONSUMO", x = "Consumo", y = "PIB")
 
 # Visualización de la relación entre CONSUMO_AJUSTADO y PIB
 ggplot(datos, aes(x = consumo_ajustado, y = PIB)) +
   geom_point() +
   geom_smooth(method = "lm", col = "blue") +
-  labs(title = "Impacto de las CONSUMO_AJUSTADO en el PIB", x = "PIB", y = "CONSUMO_AJUSTADO")
+  labs(title = "Impacto de las Consumo ajustado por remesas en el PIB", x = "Consumo ajustado", y = "PIB")
 
 
 # EXPORTAR DATOS ----------------------------------------------------------
