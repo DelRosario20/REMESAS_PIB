@@ -24,6 +24,7 @@ geometry: margin=1in
 \begin{center}
   Universidad Estatal de Milagro/ Facultad de Ciencias Sociales, Educación Comercial Y Derecho-FACSECYD
 \end{center}
+**Palabras clave:** Crecimiento económico, remesas, consumo
 
 #  Resumen:
 
