@@ -1,0 +1,43 @@
+---
+format: 
+  pdf: 
+    documentclass: article
+    pdf-engine: xelatex
+    number-sections: true
+    header-includes:
+      - \usepackage{amsmath}
+      - \usepackage{fontspec}
+      - \setmainfont{Arial}
+      - \setsansfont{Arial}
+      - \setmathfont{XITS Math}
+      - \usepackage[spanish]{babel}
+      - \usepackage{csquotes}
+      - \usepackage{setspace}
+      - \setlength{\parindent}{0.5in}  # Sangría de 0.5 pulgadas
+      - \usepackage[letterpaper,margin=1in, centering]{geometry}
+fontsize: 11pt
+---
+
+\title{\textbf{Contribución de las Remesas al Consumo y su Impacto en el Crecimiento Económico del Ecuador entre 2015 y 2022}}
+\author{Alan Del Rosario}
+\maketitle
+
+\begin{abstract}
+Este estudio analiza la contribución de las remesas al consumo de los hogares y su impacto en el crecimiento económico de Ecuador durante el periodo 2015-2022. Se utiliza un enfoque econométrico basado en dos modelos de regresión lineal simple para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en que el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, demostrando que el crecimiento económico se ve influido por las variaciones en el consumo privado. Los resultados sugieren que las remesas tienen un impacto positivo significativo en el consumo, que a su vez impulsa el crecimiento del PIB. 
+\end{abstract}
+
+\section{Introducción}
+
+\section{Objetivos}
+
+\section{Materiales y métodos}
+
+\section{Resultados y discusión}
+
+\section{Conclusiones}
+
+\section{Referencias bibliográficas}
+
+
+
+

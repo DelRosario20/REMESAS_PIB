@@ -1,10 +1,9 @@
 ---
-title: "Contribución de las Remesas al Consumo y su Impacto en el Crecimiento Económico del Ecuador entre 2015 y 2022"
-author: "
-  **Autor:** Del Rosario, Alan; adelr3@unemi.edu.ec\\
-  
-  **Co-autor(es):** Bravo, Kerly\\
+title: "**Contribución de las Remesas al Consumo y su Impacto en el Crecimiento Económico del Ecuador entre 2015 y 2022**"
+author: "**Autor:** Del Rosario, Alan; adelr3@unemi.edu.ec\\
 
+  **Co-autor(es):** Bravo, Kerly;\\
+  
   **Orientador/a:**\\
   "
 format: 
@@ -18,17 +17,23 @@ format:
       - \setmainfont{Arial}
       - \setsansfont{Arial}
       - \setmathfont{XITS Math}
+      - \usepackage[spanish]{babel}
+      - \usepackage{csquotes}
+      - \usepackage{setspace}
+      - \setlength{\parindent}{0.5in}  # Sangría de 0.5 pulgadas
+      - \usepackage[letterpaper,margin=1in, centering]{geometry}
 fontsize: 11pt
-geometry: margin=1in
 ---
+
 \begin{center}
   Universidad Estatal de Milagro/ Facultad de Ciencias Sociales, Educación Comercial Y Derecho-FACSECYD
 \end{center}
+
+\begin{abstract}
+Este estudio analiza la contribución de las remesas al consumo de los hogares y su impacto en el crecimiento económico de Ecuador durante el periodo 2015-2022. Se utiliza un enfoque econométrico basado en dos modelos de regresión lineal simple para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en que el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, demostrando que el crecimiento económico se ve influido por las variaciones en el consumo privado. Los resultados sugieren que las remesas tienen un impacto positivo significativo en el consumo, que a su vez impulsa el crecimiento del PIB. 
+\end{abstract}
+
 **Palabras clave:** Crecimiento económico, remesas, consumo
-
-#  Resumen:
-
-  Este estudio analiza la contribución de las remesas al consumo de los hogares y su impacto en el crecimiento económico de Ecuador durante el periodo 2015-2022. Se utiliza un enfoque econométrico basado en dos modelos de regresión lineal simple para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en que el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, demostrando que el crecimiento económico se ve influido por las variaciones en el consumo privado. Los resultados sugieren que las remesas tienen un impacto positivo significativo en el consumo, que a su vez impulsa el crecimiento del PIB.
 
 # Introducción
 
@@ -81,18 +86,30 @@ Donde:
 En esta etapa, se construye una variable denominada **$CONSUMO_R$** (Concumo percibidos por remesas), que almacena los valores ajustados obtenidos de la primera regresión. Luego, se utiliza un segundo modelo para medir cómo el consumo impulsado por las remesas impacta el PIB:
 
 $$
-PIB = \beta_0 + \beta_1 (CONSUMO_R) + \varepsilon_2
+PIB = \beta_0 + \beta_1 (CONSUMO_R)+\beta_2 (GASTO_p)+\beta_3 (INV)+\beta_4 (EXP_n) + \varepsilon_2
 $$
 
 Donde:
 
-- **PIB**: Producto Interno Bruto
+- **$PIB$**: Producto Interno Bruto
 
 - **$CONSUMO_R$**: Consumo impulsado por remesas
+
+- **$GASTO_p$**: Gasto público 
+
+- **$INV$**: Inversión 
+
+- **$EXP_n$**: Exportaciones netas
 
 - **$\beta_0$**: Intercepto
 
 - **$\beta_1$**: Coeficiente del consumo ajustado
+
+- **$\beta_2$**: Coeficiente del gasto público
+
+- **$\beta_3$**: Coeficiente de la inversión
+
+- **$\beta_4$**: Coeficiente de las exportaciones netas
 
 - **$\varepsilon_2$**: Término de error
 
