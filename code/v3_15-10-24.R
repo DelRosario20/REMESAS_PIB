@@ -52,12 +52,10 @@ summary(modelo_etapa1)
 
 summary(modelo_etapa2)
 
-summary(modelo_indice_pib)
-
 summary(modelo_basico)
 
-summary(datos$consumo_ajustado) 
-summary(datos$CONSUMO) 
+summary(modelo_indice_pib)
+
 
 # Visualización de la relación
 # Visualización de la relación entre REMESAS y CONSUMO
