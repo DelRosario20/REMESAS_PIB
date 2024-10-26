@@ -25,13 +25,17 @@ library(zoo)
 library(car)
 library(lmtest)
 }
-datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIA.xlsx")
+datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIADO.xlsx")
 # Limpieza de datos
 datos$TIEMPO <- as.Date(datos$TIEMPO)
-
-EXPORTA_NETAS <- datos$EXPORTACIONES-datos$IMPORTACIONES
+# Tratamiento para variable de exportaciones netas
+datos$EXPORTA_NETAS <- datos$EXPORTACIONES-datos$IMPORTACIONES
 min_exporta_neta <- min(datos$EXPORTA_NETAS)
 shift_value <- abs(min_exporta_neta) + 1  # Añadir 1 para evitar log(0)
+
+# Tratamiento para variable de inflación
+min_inflacion <- min(datos$INFLACION)
+shift_valueinf <- abs(min_inflacion) + 1  # Añadir 1 para evitar log(0)
 
 # Transformar las variables de consumo y remesas a logaritmo
 datos$log_CONSUMO <- log(datos$CONSUMO)
@@ -40,10 +44,12 @@ datos$log_PIB <- log(datos$PIB)
 datos$log_GASTO_PUBLICO <- log(datos$GASTO_PUBLICO)
 datos$log_INVERSION <- log(datos$INVERSION)
 datos$log_EXPORTA_NETAS <- log(datos$EXPORTA_NETAS + shift_value)
+datos$log_INFLACION <- log(datos$INFLACION+ shift_valueinf)
+datos$log_INGRESO_PER_CAPITA <- log(datos$INGRESO_PER_CAPITA)
 
 # Regresión en dos etapas -------------------------------------------------
 # Etapa 1: Ajustar el modelo de regresión para consumo
-modelo_etapa1 <- lm(log_CONSUMO ~ log_REMESAS, data = datos)
+modelo_etapa1 <- lm(log_CONSUMO ~ log_REMESAS + log_INFLACION + log_INGRESO_PER_CAPITA , data = datos)
 
 # Extraer los valores ajustados (consumo estimado a partir de remesas)
 datos$consumo_ajustado <- exp(modelo_etapa1$fitted.values)
@@ -55,7 +61,6 @@ modelo_remesas_pib <- lm(REMESAS~PIB, data = datos)
 # Etapa 2: Ajustar el modelo de regresión para el PIB usando el consumo ajustado
 
 modelo_indice_pib <- lm(log_PIB ~ log(consumo_ajustado) + log_GASTO_PUBLICO + log_INVERSION + log_EXPORTA_NETAS, data = datos)
-
 
 # Ver los resultados del modelo final
 summary(modelo_etapa1)
@@ -127,7 +132,9 @@ Bs_correlacion<-data.frame(PIB=datos$PIB,
                            INVERSION=datos$INVERSION,
                            EXPORTACIONES=datos$EXPORTACIONES,
                            IMPORTACIONES=datos$IMPORTACIONES,
-                           GASTO_PUBLICO=datos$GASTO_PUBLICO)
+                           GASTO_PUBLICO=datos$GASTO_PUBLICO,
+                           INFLACION=datos$INFLACION,
+                           INGRESO_PER_CAPITAL=datos$INGRESO_PER_CAPITA)
 
 Matriz_Correl<-cor(Bs_correlacion)
 
@@ -138,7 +145,7 @@ ggplot(cor_melt, aes(x = Var1, y = Var2, fill = value)) +
   scale_fill_gradient2(low = "red", high = "blue", mid = "white", midpoint = 0, limit = c(-1, 1)) +
   theme_minimal() +
   labs(title = "Matriz de Correlación", x = "", y = "") +
-  theme(axis.text.x = element_text(angle = 45, hjust = 1))
+  theme(axis.text.x = element_text(angle = 90, hjust = 1))
 
 #Grafico de matriz de correlacion
 corrplot(Matriz_Correl)
