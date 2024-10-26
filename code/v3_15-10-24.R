@@ -22,40 +22,47 @@ library(devtools)
 library(usethis)
 library(sjPlot)
 library(zoo)
+library(car)
+library(lmtest)
 }
 datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIA.xlsx")
-
-datos <- na.omit(datos)
-
+# Limpieza de datos
 datos$TIEMPO <- as.Date(datos$TIEMPO)
 
+EXPORTA_NETAS <- datos$EXPORTACIONES-datos$IMPORTACIONES
+min_exporta_neta <- min(datos$EXPORTA_NETAS)
+shift_value <- abs(min_exporta_neta) + 1  # Añadir 1 para evitar log(0)
+
+# Transformar las variables de consumo y remesas a logaritmo
+datos$log_CONSUMO <- log(datos$CONSUMO)
+datos$log_REMESAS <- log(datos$REMESAS)
+datos$log_PIB <- log(datos$PIB)
+datos$log_GASTO_PUBLICO <- log(datos$GASTO_PUBLICO)
+datos$log_INVERSION <- log(datos$INVERSION)
+datos$log_EXPORTA_NETAS <- log(datos$EXPORTA_NETAS + shift_value)
 
 # Regresión en dos etapas -------------------------------------------------
 # Etapa 1: Ajustar el modelo de regresión para consumo
-modelo_etapa1 <- lm(CONSUMO ~ REMESAS, data = datos)
+modelo_etapa1 <- lm(log_CONSUMO ~ log_REMESAS, data = datos)
 
 # Extraer los valores ajustados (consumo estimado a partir de remesas)
-datos$consumo_ajustado <- modelo_etapa1$fitted.values
+datos$consumo_ajustado <- exp(modelo_etapa1$fitted.values)
+
+#Independiente entre remesas y PIB
+
+modelo_remesas_pib <- lm(REMESAS~PIB, data = datos)
 
 # Etapa 2: Ajustar el modelo de regresión para el PIB usando el consumo ajustado
-modelo_etapa2 <- lm(PIB ~ consumo_ajustado, data = datos)
 
-EXPORTA_NETAS <- datos$EXPORTACIONES-datos$IMPORTACIONES
-
-modelo_basico <- lm(PIB ~ CONSUMO + GASTO_PUBLICO + INVERSION + EXPORTA_NETAS, data = datos)
-
-modelo_indice_pib <- lm(PIB ~ consumo_ajustado + GASTO_PUBLICO + INVERSION + EXPORTA_NETAS, data = datos)
+modelo_indice_pib <- lm(log_PIB ~ log(consumo_ajustado) + log_GASTO_PUBLICO + log_INVERSION + log_EXPORTA_NETAS, data = datos)
 
 
 # Ver los resultados del modelo final
 summary(modelo_etapa1)
 
-summary(modelo_etapa2)
-
-summary(modelo_basico)
+summary(modelo_remesas_pib)
 
 summary(modelo_indice_pib)
-
 
 # Visualización de la relación
 # Visualización de la relación entre REMESAS y CONSUMO
@@ -70,6 +77,26 @@ ggplot(datos, aes(x = consumo_ajustado, y = PIB)) +
   geom_smooth(method = "lm", col = "blue") +
   labs(title = "Impacto de las Consumo ajustado por remesas en el PIB", x = "Consumo ajustado", y = "PIB")
 
+# PRUEBAS DE ROBUSTEZ ----------------------------------------------------------
+# Pruea de colinealidad (Prueba VIF) para el modelo de la etapa 1
+vif(modelo_etapa1)
+
+# Pruea de colinealidad (Prueba VIF) para el modelo de la etapa 2
+vif(modelo_indice_pib)
+
+# Prueba de heterocedasticidad 
+# Para el modelo de la etapa 1
+bptest(modelo_etapa1)
+
+# Prueba el omdelo de la etapa 2
+bptest(modelo_indice_pib)
+
+# Prueba de autocorrelación
+# Para el modelo 1
+dwtest(modelo_etapa1)
+
+# Para el modelo 2
+dwtest(modelo_indice_pib)
 
 # EXPORTAR DATOS ----------------------------------------------------------
 # Exportar los resultados en formato Word

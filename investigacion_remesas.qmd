@@ -121,7 +121,41 @@ Donde:
 
 # Resultados y discusión
 
+```{r echo=FALSE}
+# Cargar librerías necesarias
+library(knitr)
+library(kableExtra)
+# Definir los datos de la tabla
+data <- data.frame(
+  Variable = c("Remesas", "Consumo Ajustado", "GASTO_PUBLICO", "INVERSION", "EXPORTA_NETAS", "Constante"),
+  `Consumo Ajustado` = c("5.240***", "", "", "", "", "47,713,158.000***"),
+  `Error Consumo Ajustado` = c("(1.676)", "", "", "", "", "(5,191,758.000)"),
+  PIB = c("", "0.855***", "4.092***", "0.161", "-0.977", "-18,017,905.000"),
+  `Error PIB` = c("", "(0.179)", "(0.346)", "(0.144)", "(0.581)", "(11,485,484.000)")
+)
+# Crear la tabla con kable y aplicar formato
+kbl(data, align = "c", col.names = c("Variable", "Consumo Ajustado", "(Error Estándar)", "PIB", "(Error Estándar)")) %>%
+  kable_classic(full_width = F) %>%
+  add_header_above(c(" " = 1, "Dependent variable" = 4)) %>%
+  add_header_above(c("Resultado de las regresiones de dos etapas" = 5)) %>%
+  add_footnote(c("Observaciones: 13", 
+                 "R²: 0.471 (Consumo Ajustado), 0.968 (PIB)", 
+                 "R² Ajustado: 0.422 (Consumo Ajustado), 0.952 (PIB)", 
+                 "Error Estándar Residual: 4,364,795.000 (df = 11), 2,175,130.000 (df = 8)", 
+                 "Estadístico F: 9.779*** (df = 1; 11), 60.151*** (df = 4; 8)",
+                 "Nota: *p<0.1; **p<0.05; ***p<0.01"))
+```
+
 *(Nota: Los resultados y la discusión serán incorporados una vez finalizados los cálculos econométricos.  En este ambito se registará el impacto y discutir posibles variaciones en función de los factores económicos externos mencionados).*
+
+
+# Discusión
+## Interpretación de coeficientes:
+
+
+## Intervalos de confianza
+
+## Pruebas de heterocedasticidad y autocorrelación
 
 # Conclusiones
 
