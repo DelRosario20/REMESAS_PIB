@@ -66,18 +66,24 @@ El estudio emplea un modelo en dos etapas o **regresión escalonada**, con el fi
 En esta fase, se emplea un modelo de regresión lineal simple para medir cómo las remesas afectan el consumo de los hogares. El modelo econométrico se describe como:
 
 $$
-CONSUMO = \alpha_0 + \alpha_1 (\text{Remesas}) + \varepsilon_1
+CONSUMO = \alpha_0 + \alpha_1 (Remesas) + \alpha_2 (Inflación) + \alpha_3 (Ingreso per capital) + \varepsilon_1
 $$
-
+  
 Donde:
 
-- **Y**: Consumo de los hogares  
+- **$Remesas$***: Cantidad de remesas recibidas 
 
-- **X**: Cantidad de remesas recibidas  
+- **$Inflación$***: Inflación anual
+
+- **$Ingreso per capital$***: Ingresos per capital de los hogares
 
 - **$\alpha_0$**: Intercepto  
 
-- **$\alpha_1$**: Coeficiente de las remesas   
+- **$\alpha_1$**: Coeficiente de las remesas  
+
+- **$\alpha_2$**: Coeficiente de la inflación  
+
+- **$\alpha_3$**: Coeficiente de los ingresos per capital
 
 - **$\varepsilon_1$**: Término de error 
 
@@ -127,11 +133,11 @@ library(knitr)
 library(kableExtra)
 # Definir los datos de la tabla
 data <- data.frame(
-  Variable = c("Remesas", "Consumo Ajustado", "GASTO_PUBLICO", "INVERSION", "EXPORTA_NETAS", "Constante"),
-  `Consumo Ajustado` = c("5.240***", "", "", "", "", "47,713,158.000***"),
-  `Error Consumo Ajustado` = c("(1.676)", "", "", "", "", "(5,191,758.000)"),
-  PIB = c("", "0.855***", "4.092***", "0.161", "-0.977", "-18,017,905.000"),
-  `Error PIB` = c("", "(0.179)", "(0.346)", "(0.144)", "(0.581)", "(11,485,484.000)")
+  Variable = c("Remesas", "Consumo Ajustado", "log_INGRESO_PER_CAPITA", "log(consumo_ajustado)", "log_GASTO_PUBLICO","log_INVERSION", "log_EXPORTA_NETAS" , "Constante"),
+  `Consumo Ajustado` = c("0.209***", "-0.015", "1.068***","", "", "", "", "5.576***"),
+  `Error Consumo Ajustado` = c("(0.034)", "(0.011)", "(0.114)","", "", "", "", "(1.077)"),
+  PIB = c("", "", "", "0.725***", "0.291***", "0.004", "0.001*", "0.504"),
+  `Error PIB` = c("", "", "", "(0.038)", "(0.024)", "(0.008)", "(0.0004)", "(0.406)")
 )
 # Crear la tabla con kable y aplicar formato
 kbl(data, align = "c", col.names = c("Variable", "Consumo Ajustado", "(Error Estándar)", "PIB", "(Error Estándar)")) %>%
@@ -139,23 +145,99 @@ kbl(data, align = "c", col.names = c("Variable", "Consumo Ajustado", "(Error Est
   add_header_above(c(" " = 1, "Dependent variable" = 4)) %>%
   add_header_above(c("Resultado de las regresiones de dos etapas" = 5)) %>%
   add_footnote(c("Observaciones: 13", 
-                 "R²: 0.471 (Consumo Ajustado), 0.968 (PIB)", 
-                 "R² Ajustado: 0.422 (Consumo Ajustado), 0.952 (PIB)", 
-                 "Error Estándar Residual: 4,364,795.000 (df = 11), 2,175,130.000 (df = 8)", 
-                 "Estadístico F: 9.779*** (df = 1; 11), 60.151*** (df = 4; 8)",
+                 "R²: 0.950 (Consumo Ajustado), 0.998 (PIB)", 
+                 "R² Ajustado: 0.933	 (Consumo Ajustado), 0.997 (PIB)", 
+                 "Error Estándar Residual: 0.024 (df = 9), 0.006 (df = 8)", 
+                 "Estadístico F: 56.649*** (df = 3; 9), 940.193*** (df = 4; 8)",
                  "Nota: *p<0.1; **p<0.05; ***p<0.01"))
 ```
 
 *(Nota: Los resultados y la discusión serán incorporados una vez finalizados los cálculos econométricos.  En este ambito se registará el impacto y discutir posibles variaciones en función de los factores económicos externos mencionados).*
 
+## Pruebas de robustez
+
+Para fortalecer la validez del modelo empleado en este estudio, se sometió a varias pruebas que verifiquen el cumplimiento de los supuestos necesarios en la regresión lineal.
+
+
+### Prueba de colinealidad
+
+Se utilizó la prueba de inflacción de la varianza (VIF) para detectar sí existe colinealidad entre las variables independeintes de cada uno de los modelos empleados en cada etapa del estudio. 
+
+Se utilizó la prueba de factor de inflacción de la varianza (VIF) para evaluar la posibilidad de presentar colinealidad entre las variables independientes en los modelos de cada etapa del estudio. 
+
+#### Para modelo de la primera etapa
+
+| Remesas               | Inflación | Ingreso per capital|
+|-----------------------|-----------|--------------------|
+|1.248341               | 1.247457  | 1.030556           |
+
+#### Para modelo de la segunda etapa
+
+| Consumo ajustado      |   Gasto público        |     Inversión      | Exportaciones netas |
+|-----------------------|------------------------|--------------------|---------------------|
+|             4.067287  |            4.395275    |          1.221706  |            1.110552 |
+
+Los resultados de la prueba de VIF para el estudio, tanto en la etapa 1 y etapa 2 dieron valores inferiores a 5. Lo que indica uan baja colinealidad entre las variables independientes. Ya que, sugiere que no hay redundancia estadística significativa entre las variables explicativas. 
+
+Los resultados del VIF para ambas etapas del estudio determinan valores inferiores a 5, lo que indica una baja colinealidad entre las variables independientes. Este resultado sugiere que no existe reduncia estadística significativa entre las variables explicativas.
+
+### Prueba de heterocedasticidad
+
+Para la detección de heterocedasticidad dentro del modelo, se aplicó la prueba de Breush-Pagan, la cual evalúa si la varianza de los errores es constante.
+
+#### Para modelo de la primera etapa
+
+|   	Studentized Breusch-Pagan Test   |
+|-------------------------|------------|
+| Estadístico             | Valor      |
+|-------------------------|------------|
+|  BP                     |   1.9731   |
+| df                      | 3          |
+| p-value                 | 0.578    |
+
+#### Para modelo de la segunda etapa
+
+|   	Studentized Breusch-Pagan Test   |
+|-------------------------|------------|
+| Estadístico             | Valor      |
+|-------------------------|------------|
+|  BP                     |   6.0648   |
+| df                      | 4          |
+| p-value                 | 0.1944     |
+
+Según los resultados de la prueba para evaluar la presencia de heterocedasticidad, se obtiene valores _"p"_ mayores a 0.05 en ambas etapas del estudio. Esto sugiere que, no encuentra evidencia estadística significativa de presencia de heterocedasiticidad; indicando así que, los errores del modelo tienen varianza constante.
+
+### Prueba de autocorrelación
+
+Se realizó la prueba de Durbin-Watson para determinar sí existe autocorrelación en los errores de los modelos. 
+
+#### Para modelo de la primera etapa
+
+|   		Durbin-Watson test             |
+|-------------------------|------------|
+|  DW                     |   2.2064   |
+| p-value                 | 0.2886     |
+
+#### Para modelo de la segunada etapa
+
+|   		Durbin-Watson test                                     |
+|--------------------------------------|-----------------------|
+|  DW                                  |               2.2925  |                       
+| p-value                              |              0.4795   |
+
+Los valores resultante de la prueba de Durbin-Watson se encuentran cercanos a 2, lo que sugiere que no existe evidencia significativa de autocorrelación de los errores. Este resultado es respaldado con valores _"p"_ superiores a 0.05. 
+
+### Interpretación de resultados:
+
+![Gráfico del modelo de regresión - Etapa 1](IMAGENES/consumo_remesas.png)
+
+![Gráfico del modelo de regresión - Etapa 2](IMAGENES/consumo_ajustado_pib.png)
 
 # Discusión
-## Interpretación de coeficientes:
 
 
 ## Intervalos de confianza
 
-## Pruebas de heterocedasticidad y autocorrelación
 
 # Conclusiones
 

@@ -28,9 +28,12 @@ library(lmtest)
 datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIADO.xlsx")
 # Limpieza de datos
 datos$TIEMPO <- as.Date(datos$TIEMPO)
+
 # Tratamiento para variable de exportaciones netas
 datos$EXPORTA_NETAS <- datos$EXPORTACIONES-datos$IMPORTACIONES
+
 min_exporta_neta <- min(datos$EXPORTA_NETAS)
+
 shift_value <- abs(min_exporta_neta) + 1  # Añadir 1 para evitar log(0)
 
 # Tratamiento para variable de inflación
@@ -81,28 +84,32 @@ ggplot(datos, aes(x = consumo_ajustado, y = PIB)) +
   geom_point() +
   geom_smooth(method = "lm", col = "blue") +
   labs(title = "Impacto de las Consumo ajustado por remesas en el PIB", x = "Consumo ajustado", y = "PIB")
-
+  
 # PRUEBAS DE ROBUSTEZ ----------------------------------------------------------
+# Prueba de colinealidad
+{
 # Pruea de colinealidad (Prueba VIF) para el modelo de la etapa 1
 vif(modelo_etapa1)
 
 # Pruea de colinealidad (Prueba VIF) para el modelo de la etapa 2
 vif(modelo_indice_pib)
-
+}
 # Prueba de heterocedasticidad 
+{
 # Para el modelo de la etapa 1
 bptest(modelo_etapa1)
 
 # Prueba el omdelo de la etapa 2
 bptest(modelo_indice_pib)
-
+}
 # Prueba de autocorrelación
+{
 # Para el modelo 1
 dwtest(modelo_etapa1)
 
 # Para el modelo 2
 dwtest(modelo_indice_pib)
-
+}
 # EXPORTAR DATOS ----------------------------------------------------------
 # Exportar los resultados en formato Word
 {

@@ -1,0 +1,45 @@
+---
+title: "prueba"
+format: pdf
+editor: visual
+---
+
+Resultados de las Regresiones en Dos Etapas
+|===================================================================|
+|                                       Dependent variable:          |   
+|                           --------------------------------------------|
+|                               Consumo Ajustado             PIB          |
+|                                         (1)                   (2)          |
+-------------------------------------------------------------------
+Remesas                      0.209***                              
+                              (0.034)                              
+                                                                   
+Consumo Ajustado              -0.015                               
+                              (0.011)                              
+                                                                   
+log_INGRESO_PER_CAPITA       1.068***                              
+                              (0.114)                              
+                                                                   
+log(consumo_ajustado)                               0.725***       
+                                                    (0.038)        
+                                                                   
+log_GASTO_PUBLICO                                   0.291***       
+                                                    (0.024)        
+                                                                   
+log_INVERSION                                        0.004         
+                                                    (0.008)        
+                                                                   
+log_EXPORTA_NETAS                                    0.001*        
+                                                    (0.0004)       
+                                                                   
+Constant                     5.576***                0.504         
+                              (1.077)               (0.406)        
+                                                                   
+-------------------------------------------------------------------
+Observations                    13                     13          
+R2                             0.950                 0.998         
+Adjusted R2                    0.933                 0.997         
+Residual Std. Error       0.024 (df = 9)         0.006 (df = 8)    
+F Statistic            56.649*** (df = 3; 9) 940.193*** (df = 4; 8)
+===================================================================
+Note:                                   *p<0.1; **p<0.05; ***p<0.01
