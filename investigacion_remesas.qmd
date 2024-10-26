@@ -229,18 +229,35 @@ Los valores resultante de la prueba de Durbin-Watson se encuentran cercanos a 2,
 
 ### Interpretación de resultados:
 
+Los modelos de regresión escalonada en dos etapas aplicadas dentro del estudio permitieron la evaluación detallada del impacto de las remesas sobre el consumo y como esta relación repercute signicativamente dentro del Producto Interno Bruto (PIB) de Ecuador entre 2010 y 2022. Los modelos propopuestos fueron sujetos a evaluaciones de rigiedez estadísitica para garanitizar la robustez de los resutlados mediante pruebas de colinealidad, heterocedasticidaad y autocorrelación, las cuáles impulsar la validez de los modelos aplicados.
+
+![Resultados de los modelos de regresión escalonada](IMAGENES/Screenshot%202024-10-26%20003428.png){ width=55% }
+
+#### Primera etapa: Impacto de las remesas en el consumo
+
+En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obtiendo resultados que sugieren como las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de la remesas evaluada mediante la variable _"log(REMESAS)"_ de .2022, lo cual implica que una incremento de 1 punto porcentual en las remesas está asociada con un incremento aproximado de .21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un _"p-value"_ de .000188 puntos, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
+
+
 ![Gráfico del modelo de regresión - Etapa 1](IMAGENES/consumo_remesas.png)
+
+#### Segunda etapa: Impacto del consumo impulsado por remesas en el PIB
+
+En la segunda etapa del modelo, se examinó como el consumo, impulsado en parte por las remeasas, tiene incidencia sobre el PIB,  evaluando variables adicionales como el gasto público, la inversión y las exportaciones netas. El coeficiente que evalúa la contribución de este consumo ajustado por remesas denotado con la variable _"log(consumo ajustado)"_ de .7253 con un valor _"p"_ de $6.14e^-8$, altamente significativo, sugiere una relación positiva entre el consumo ajustado por remesas y el PIB. 
+
+Adicionalmente, como variables independientes consderadas se obtuvo que para el gasto público con un coeficiente de .2911 puntos tiene un efecto positivo y significativo respaldo con un valor _"p"_ de $1.71e^-06$, indicando que el gasto del estado actua como un impulso en el crecimiento económico. Pesé que, las demas variables independienes no tienen una contribución estadística significativa en el modelo, siguen representando contribuciones positivas del comercio exterior y la inversión al Producto Interno Bruto (PIB) del Ecuador. 
 
 ![Gráfico del modelo de regresión - Etapa 2](IMAGENES/consumo_ajustado_pib.png)
 
+Con un $R^2$ ajustado del modelo de .9968 puntos, se sugiere que casi en su totalidad de la variabilidad en el PIB puede ser explicado por las variables integradas dentro del modelo, ejerciendo signicancia mediante la solidez del modelo y la dependencia del crecimiento económico en factores internos, en el caso del presente estudio el consumo, en el Ecuador. 
+
 # Discusión
 
-
-## Intervalos de confianza
-
+_"Programas que impulsando la diverificación de las remesas en los hogares en otros países"_ "[Por agregar]"
 
 # Conclusiones
 
-*(Nota: Las conclusiones estarán disponibles al cierre del análisis de resultados).*
+Los resultados obtenidos mediante la implementación de modelos de regresión escalonada y el análisis de los mismos, se evidencia que las remesas desempeñan un papel significativo para el consumo interno de los hogares ecuatorianos, y que este consumo tiene incidencia significativa en el crecimiento del PIB. 
+
+Este análisis justifica la implementación de políticas que incentiven el apoyo los hogares receptores de las remesas, impulsando el aprovechamiento de estos valores como un medio de estímulo económico. Así lo sugiere la literatura evidenciada anteriormente que destaca la implementación de leyes, programas y atención a los hogares receptores de remesas según casos internaciones que pueden sugerir mejorar significativas en el desarrollo y crecimieno economico en el Ecuador. 
 
 # Referencias Bibliográficas
