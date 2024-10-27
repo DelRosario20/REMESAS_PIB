@@ -22,6 +22,7 @@ format:
       - \usepackage{setspace}
       - \setlength{\parindent}{0.5in}  # Sangría de 0.5 pulgadas
       - \usepackage[letterpaper,margin=1in, centering]{geometry}
+bibliography: refs.bib
 fontsize: 11pt
 ---
 
@@ -30,16 +31,24 @@ fontsize: 11pt
 \end{center}
 
 \begin{abstract}
-Este estudio analiza la contribución de las remesas al consumo de los hogares y su impacto en el crecimiento económico de Ecuador durante el periodo 2010-2022. Se utiliza un enfoque econométrico basado en dos modelos de regresión lineal simple para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en que el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, demostrando que el crecimiento económico se ve influido por las variaciones en el consumo privado. Los resultados sugieren que las remesas tienen un impacto positivo significativo en el consumo, que a su vez impulsa el crecimiento del PIB. 
+Este estudio examina la contribución de las remesas al consumo de los hogares así como su impacto en el crecimiento económico de Ecuador durante el periodo 2010-2022. Para ello, se implementa un enfoque econométrico basado en dos modelos de regresión lineal múltiple en dos etapas para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en qué el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, sugiriendo que el crecimiento económico se ve afeectado por las variaciones en el consumo privado. Los hallazgos sugieren que las remesas tienen un efecto positivo significativo sobre el consumo, el cual, a su vez, impulsa el crecimiento del PIB del Ecuador.
 \end{abstract}
 
 **Palabras clave:** Crecimiento económico, remesas, consumo
 
 # Introducción
 
-Las remesas han sido un componente fundamental en la economía de numerosos países en desarrollo, y Ecuador no es la excepción. Este flujo de capital proveniente del extranjero representa una fuente de ingresos importante para muchos hogares, especialmente aquellos cuyos miembros han migrado buscando mejores oportunidades económicas. Las remesas no solo contribuyen a la mejora de la calidad de vida de las familias receptoras, sino que también tienen el potencial de impactar significativamente en el consumo nacional, lo que a su vez puede influir en el crecimiento económico del país.
+Las remesas han sido un componente fundamental en la economía de numerosos países en desarrollo, y Ecuador no es la excepción. Este flujo de capital proveniente del extranjero representa una fuente de ingresos importante para muchos hogares, especialmente aquellos cuyos miembros han migrado buscando mejores oportunidades económicas. Las remesas no solo contribuyen a la mejora de la calidad de vida de las familias receptoras, sino que también tienen el potencial de impactar significativamente en el consumo nacional, lo que a su vez puede influir en el crecimiento económico del país, señalado por (@Terry).
 
-En el caso de Ecuador, el flujo de remesas ha jugado un rol determinante en el consumo privado, actuando como un mecanismo de soporte para la demanda interna, especialmente en tiempos de desaceleración económica o inestabilidad financiera. Durante el período 2015-2022, el país enfrentó desafíos económicos que incluyeron la caída de los precios del petróleo, desastres naturales como el terremoto de 2016 y, más recientemente, la crisis sanitaria y económica derivada de la pandemia de COVID-19. En este contexto, las remesas han sido un factor de alivio para los hogares ecuatorianos, proporcionando una inyección de recursos que favorece el consumo.
+En el caso de Ecuador, el flujo de remesas ha jugado un rol determinante en el consumo privado, actuando como un mecanismo de soporte para la demanda interna, especialmente en tiempos de desaceleración económica o inestabilidad financiera. Durante el período 2015-2022, el país enfrentó desafíos económicos que incluyeron la caída de los precios del petróleo, desastres naturales como el terremoto de 2016 y, más recientemente, la crisis sanitaria y económica derivada de la pandemia de COVID-19. En este marco, las remesas han sido un factor de alivio para los hogares ecuatorianos, proporcionando una inyección de recursos que favorece el consumo.
+
+Según profundiza @Zarate_Hoyos, a nivel agregado las remesas contribuyen disminución de pobreza incremento en el consumo privado y a su vez al crecimiento nacional, las remasas también pueden contribuir en la inversión fomentando aun mas el crecimiento económico impulsando en actividades productivas ya que se crean efectos multiplicadores en áreas de su recepción a medida que se filtran a medida local o regional.
+
+Por otra parte, según lo indica @Woodruff el uso de las remesas familiares para la inversión en actividades productivas en el emprendimiento sigue siendo reducida. De acuerdo con datos de la Fundación BBVA Bancomer y CONAPO (2018), el principal uso al que se las destina en México es para cubrir necesidades básicas de comida y vestido (en promedio un 80%), mientras que el 20% restante se emplea en salud, educación, pagar deudas, o bien abrir un negocio. En Ecuador los individuos pueden llegar a invertir hasta el 10% del monto de las remesas en actividades de inversión y producción, así lo señalada @González_Casares .Estos datos se apoyan por diversos estudios realizados alrededor de países latinoamericanos.
+
+Una fragmentación excesiva de los recursos disponibles para proyectos productivos, escasas capacidades empresariales, desconfianza de estabilidad macroeconómica y la baja rentabilidad de las inversiones locales son algunos de os factores que limitas la inversión de estos recursos en actividades productivas, descrito por @Delgado_Wise. A lo anterior se suma la limitada oferta de servicios financieros adecuados al perfil de los hogares receptores de remesas, situación que se acentúa en el ámbito rural. 
+
+Según @Cooray, otro conjunto de estudios muestra la existencia de una asociación positiva entre una mayor inclusión financiera y la recepción de remesas familiares. Las remesas pueden estar fuertemente vinculadas con la expansión de servicios financieros.
 
 Este estudio profundiza en la contribución de las remesas al consumo de los hogares y su posterior efecto en el crecimiento económico de Ecuador. A través de un análisis econométrico, se pretende identificar la relación entre el ingreso adicional por remesas y el gasto de los hogares, así como evaluar cómo este gasto influye en el Producto Interno Bruto (PIB).
 
@@ -49,12 +58,15 @@ Este estudio profundiza en la contribución de las remesas al consumo de los hog
 
 Analizar la contribución de las remesas al consumo de los hogares y su impacto en el crecimiento económico de Ecuador durante el periodo 2010-2022.
 
+
+Analizar la contiribución de las remesas al consumo de los hogares en Ecuador y su impacto en el crecimiento económico del país durante el período 2010-2022. Buscando determinar en qué medida el ingreo proviente de remesas influye significativamente en el comportamiento del consumo de los hogares ecuatorianos receptores de estos valoes, así como la relación indirecta entre el consumo impulsado por remesas y el Producto Interno Bruto (PIB) del país. 
+
 ## Objetivos específicos
 
 - Evaluar el efecto de las remesas sobre el consumo de los hogares en Ecuador, identificando la magnitud del impacto que el ingreso adicional proveniente de remesas tiene sobre el gasto de las familias receptoras.
-- Determinar la relación entre el consumo derivado de las remesas y el crecimiento económico, analizando cómo las variaciones en el consumo privado influencian el Producto Interno Bruto (PIB) del país.
+- Determinar la relación entre el consumo derivado de las remesas y el crecimiento económico, analizando cómo las variaciones en el consumo privado influencian en el Producto Interno Bruto (PIB) del país.
 - Identificar las tendencias y variaciones en la recepción de remesas durante el periodo de estudio, considerando los factores externos e internos que han influido en estos flujos de capital.
-
+- Promover políticas de diversificación al uso de remesas de los hogares mediante programas, leyes o herramientas acordes al análisis realizado de los resultados obtenidos.
 # Metodología
 
 ## Enfoque econométrico
@@ -63,7 +75,7 @@ El estudio emplea un modelo en dos etapas o **regresión escalonada**, con el fi
 
 ### Primera etapa: Relación entre consumo y remesas
 
-En esta fase, se emplea un modelo de regresión lineal simple para medir cómo las remesas afectan el consumo de los hogares. El modelo econométrico se describe como:
+En esta fase, se emplea un modelo de regresión lineal múltiple para medir cómo las remesas afectan el consumo de los hogares. El modelo econométrico se describe como:
 
 $$
 CONSUMO = \alpha_0 + \alpha_1 (REMESAS) + \alpha_2 (\pi) + \alpha_3 (Ingreso_p) + \varepsilon_1
@@ -71,25 +83,25 @@ $$
   
 Donde:
 
-- **$Remesas$***: Cantidad de remesas recibidas 
+- **$Remesas$**: Monto total de remesas recibidas por los hogares en un período dado
 
-- **$\pi$***: Inflación anual
+- **$\pi$**: Tasa de inflación anual
 
-- **$Ingreso_p$***: Ingresos per capital de los hogares
+- **$Ingreso_p$**: Ingreso per cápita promedio de los hogares
 
-- **$\alpha_0$**: Intercepto  
+- **$\alpha_0$**: Intercepto del modelo
 
 - **$\alpha_1$**: Coeficiente de las remesas  
 
 - **$\alpha_2$**: Coeficiente de la inflación  
 
-- **$\alpha_3$**: Coeficiente de los ingresos per capital
+- **$\alpha_3$**: Coeficiente de los ingresos per cápita
 
-- **$\varepsilon_1$**: Término de error 
+- **$\varepsilon_1$**: Término de error del modelo
 
 ### Segunda etapa: Relación entre consumo ajustado por remesas y PIB
 
-En esta etapa, se construye una variable denominada **$CONSUMO_R$** (Concumo percibidos por remesas), que almacena los valores ajustados obtenidos de la primera regresión. Luego, se utiliza un segundo modelo para medir cómo el consumo impulsado por las remesas impacta el PIB:
+En esta etapa, se construye una variable denominada **$CONSUMO_R$** (Consumo percibido por remesas), que almacena los valores ajustados obtenidos de la primera regresión. Luego, se utiliza un segundo modelo para medir cómo el consumo impulsado por las remesas impacta en el PIB:
 
 $$
 PIB = \beta_0 + \beta_1 (CONSUMO_R)+\beta_2 (GASTO_p)+\beta_3 (INV)+\beta_4 (EXP_n) + \varepsilon_2
@@ -99,15 +111,15 @@ Donde:
 
 - **$PIB$**: Producto Interno Bruto
 
-- **$CONSUMO_R$**: Consumo impulsado por remesas
+- **$CONSUMO_R$**: Consumo derivado de las remesas
 
 - **$GASTO_p$**: Gasto público 
 
-- **$INV$**: Inversión 
+- **$INV$**: Inversión privada y pública 
 
 - **$EXP_n$**: Exportaciones netas
 
-- **$\beta_0$**: Intercepto
+- **$\beta_0$**: Intercepto del modelo
 
 - **$\beta_1$**: Coeficiente del consumo ajustado
 
@@ -117,7 +129,7 @@ Donde:
 
 - **$\beta_4$**: Coeficiente de las exportaciones netas
 
-- **$\varepsilon_2$**: Término de error
+- **$\varepsilon_2$**: Término de error del modelo
 
 ## Materiales estadísticos
 
@@ -158,7 +170,7 @@ Para fortalecer la validez del modelo empleado en este estudio, se sometió a va
 
 ### Prueba de colinealidad
 
-Se utilizó la prueba de factor de inflacción de la varianza (VIF) para evaluar la posibilidad de presentar colinealidad entre las variables independientes en los modelos de cada etapa del estudio. 
+Se utilizó la prueba de factor de inflación de la varianza (VIF) para evaluar la posibilidad de presentar colinealidad entre las variables independientes en los modelos de cada etapa del estudio. 
 
 #### Para modelo de la primera etapa
 
@@ -172,9 +184,9 @@ Se utilizó la prueba de factor de inflacción de la varianza (VIF) para evaluar
 |-----------------------|------------------------|--------------------|---------------------|
 |             4.067287  |            4.395275    |          1.221706  |            1.110552 |
 
-Los resultados de la prueba de VIF para el estudio, tanto en la etapa 1 y etapa 2 dieron valores inferiores a 5. Lo que indica uan baja colinealidad entre las variables independientes. Ya que, sugiere que no hay redundancia estadística significativa entre las variables explicativas. 
+Los resultados de la prueba de VIF para el estudio, tanto en la etapa 1 y etapa 2 dieron valores inferiores a 5. Lo que indica una baja colinealidad entre las variables independientes. Ya que, sugiere que no hay redundancia estadística significativa entre las variables explicativas. 
 
-Los resultados del VIF para ambas etapas del estudio determinan valores inferiores a 5, lo que indica una baja colinealidad entre las variables independientes. Este resultado sugiere que no existe reduncia estadística significativa entre las variables explicativas.
+Los resultados del VIF para ambas etapas del estudio determinan valores inferiores a 5, lo que indica una baja colinealidad entre las variables independientes. Este resultado sugiere que no existe reducción estadística significativa entre las variables explicativas.
 
 ### Prueba de heterocedasticidad
 
@@ -200,7 +212,7 @@ Para la detección de heterocedasticidad dentro del modelo, se aplicó la prueba
 | df                      | 4          |
 | p-value                 | 0.1944     |
 
-Según los resultados de la prueba para evaluar la presencia de heterocedasticidad, se obtiene valores _"p"_ mayores a 0.05 en ambas etapas del estudio. Esto sugiere que, no encuentra evidencia estadística significativa de presencia de heterocedasiticidad; indicando así que, los errores del modelo tienen varianza constante.
+Según los resultados de la prueba para evaluar la presencia de heterocedasticidad, se obtienen valores _"p"_ mayores a 0.05 en ambas etapas del estudio. Esto sugiere que no encuentra evidencia estadística significativa de presencia de heterocedastiticidad; indicando así que los errores del modelo tienen varianza constante.
 
 ### Prueba de autocorrelación
 
@@ -220,29 +232,29 @@ Se realizó la prueba de Durbin-Watson para determinar sí existe autocorrelaci�
 |  DW                                  |               2.2925  |                       
 | p-value                              |              0.4795   |
 
-Los valores resultante de la prueba de Durbin-Watson se encuentran cercanos a 2, lo que sugiere que no existe evidencia significativa de autocorrelación de los errores. Este resultado es respaldado con valores _"p"_ superiores a 0.05. 
+Los valores resultantes de la prueba de Durbin-Watson se encuentran cercanos a 2, lo que sugiere que no existe evidencia significativa de autocorrelación de los errores Este resultado es respaldado con valores _"p"_ superiores a 0.05.
 
 ### Interpretación de resultados:
 
-Los modelos de regresión escalonada en dos etapas aplicadas dentro del estudio permitieron la evaluación detallada del impacto de las remesas sobre el consumo y como esta relación repercute signicativamente dentro del Producto Interno Bruto (PIB) de Ecuador entre 2010 y 2022. Los modelos propopuestos fueron sujetos a evaluaciones de rigiedez estadísitica para garanitizar la robustez de los resutlados mediante pruebas de colinealidad, heterocedasticidaad y autocorrelación, las cuáles impulsar la validez de los modelos aplicados.
+Los modelos de regresión escalonada en dos etapas aplicados dentro del estudio permitieron la evaluación detallada del impacto de las remesas sobre el consumo y cómo esta relación repercute signicativamente dentro del Producto Interno Bruto (PIB) de Ecuador entre 2010 y 2022. Los modelos propuestos fueron sujetos a evaluaciones de rigidez estadística para garantizar la robustez de los resultados mediante pruebas de colinealidad, heterocedastidad y autocorrelación, las cuáles impulsan la validez de los modelos aplicados.
 
-![Resultados de los modelos de regresión escalonada](IMAGENES/resultados_regresiones.png{ width=55% }
+![Resultados de los modelos de regresión escalonada](IMAGENES/resultados_regresiones.png){ width=55% }
 
-#### Primera etapa: Impacto de las remesas en el consumo
+#### Primera etapa: Impacto de las remesas en el consumo   
 
-En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obtiendo resultados que sugieren como las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de la remesas evaluada mediante la variable _"log(REMESAS)"_ de .2022, lo cual implica que una incremento de 1 punto porcentual en las remesas está asociada con un incremento aproximado de .21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un _"p-value"_ de .000188 puntos, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
+En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obtendo resultados que sugieren cómo las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de las remesas evaluado mediante la variable _"log(REMESAS)"_ de .2022 puntos decimales, lo cual implica que un incremento de 1 punto porcentual en las remesas está asociado con un incremento aproximado de .21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un _"p-value"_ de .000188 puntos decimales, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
 
 ![Gráfico del modelo de regresión - Etapa 1](IMAGENES/consumo_remesas.png)
 
 #### Segunda etapa: Impacto del consumo impulsado por remesas en el PIB
 
-En la segunda etapa del modelo, se examinó como el consumo, impulsado en parte por las remeasas, tiene incidencia sobre el PIB,  evaluando variables adicionales como el gasto público, la inversión y las exportaciones netas. El coeficiente que evalúa la contribución de este consumo ajustado por remesas denotado con la variable _"log(consumo ajustado)"_ de .7253 con un valor _"p"_ de $6.14e^-8$, altamente significativo, sugiere una relación positiva entre el consumo ajustado por remesas y el PIB. 
+En la segunda etapa del modelo, se examinó como el consumo, impulsado en parte por las remesas, tiene incidencia sobre el PIB, evaluando variables adicionales como el gasto público, la inversión y las exportaciones netas. El coeficiente que evalúa la contribución de este consumo ajustado por remesas, denotado con la variable _"log(consumo ajustado)"_ de .7253 con un valor _"p"_ de $6.14e^{-8}$, altamente significativo, sugiere una relación positiva entre el consumo ajustado por remesas y el PIB.
 
-Adicionalmente, como variables independientes consderadas se obtuvo que para el gasto público con un coeficiente de .2911 puntos tiene un efecto positivo y significativo respaldo con un valor _"p"_ de $1.71e^-06$, indicando que el gasto del estado actua como un impulso en el crecimiento económico. Pesé que, las demas variables independienes no tienen una contribución estadística significativa en el modelo, siguen representando contribuciones positivas del comercio exterior y la inversión al Producto Interno Bruto (PIB) del Ecuador. 
+Adicionalmente, como variables independientes consderadas se obtuvo que para el gasto público con un coeficiente de .2911 puntos tiene un efecto positivo y significativo respaldo con un valor _"p"_ de $1.71e^{-06}$, indicando que el gasto del estado actua como un impulso en el crecimiento económico. Pesé que, las demas variables independienes no tienen una contribución estadística significativa en el modelo, siguen representando contribuciones positivas del comercio exterior y la inversión al Producto Interno Bruto (PIB) del Ecuador. 
 
 ![Gráfico del modelo de regresión - Etapa 2](IMAGENES/consumo_ajustado_pib.png)
 
-Con un $R^2$ ajustado del modelo de .9968 puntos, se sugiere que casi en su totalidad de la variabilidad en el PIB puede ser explicado por las variables integradas dentro del modelo, ejerciendo signicancia mediante la solidez del modelo y la dependencia del crecimiento económico en factores internos, en el caso del presente estudio el consumo, en el Ecuador. 
+Con un $R^{2}$ ajustado del modelo de .9968 puntos decimales, se sugiere que casi en su totalidad de la variabilidad en el PIB puede ser explicada por las variables integradas dentro del modelo, ejerciendo significancia mediante la solidez del modelo y la dependencia del crecimiento económico en factores internos, en el caso del presente estudio el consumo, en el Ecuador.
 
 # Discusión
 
@@ -250,8 +262,8 @@ _"Programas que impulsando la diverificación de las remesas en los hogares en o
 
 # Conclusiones
 
-Los resultados obtenidos mediante la implementación de modelos de regresión escalonada y el análisis de los mismos, se evidencia que las remesas desempeñan un papel significativo para el consumo interno de los hogares ecuatorianos, y que este consumo tiene incidencia significativa en el crecimiento del PIB. 
+Los resultados obtenidos mediante la implementación de modelos de regresión escalonada y el análisis de los mismos evidencian que las remesas desempeñan un papel significativo para el consumo interno de los hogares ecuatorianos, y que este consumo tiene incidencia significativa en el crecimiento del PIB.
 
-Este análisis justifica la implementación de políticas que incentiven el apoyo los hogares receptores de las remesas, impulsando el aprovechamiento de estos valores como un medio de estímulo económico. Así lo sugiere la literatura evidenciada anteriormente que destaca la implementación de leyes, programas y atención a los hogares receptores de remesas según casos internaciones que pueden sugerir mejorar significativas en el desarrollo y crecimieno economico en el Ecuador. 
+Este análisis justifica la implementación de políticas que incentiven el apoyo a los hogares receptores de las remesas, impulsando el aprovechamiento de estos valores como un medio de estímulo económico. Así lo sugiere la literatura evidenciada anteriormente que destaca la implementación de leyes, programas y atención a los hogares receptores de remesas según casos internacionales que pueden sugerir mejoras significativas en el desarrollo y crecimiento económico en el Ecuador.
 
 # Referencias Bibliográficas
