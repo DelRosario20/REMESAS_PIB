@@ -25,7 +25,8 @@ library(zoo)
 library(car)
 library(lmtest)
 }
-datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIADO.xlsx")
+{
+atos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIADO.xlsx")
 # Limpieza de datos
 datos$TIEMPO <- as.Date(datos$TIEMPO)
 
@@ -49,6 +50,7 @@ datos$log_INVERSION <- log(datos$INVERSION)
 datos$log_EXPORTA_NETAS <- log(datos$EXPORTA_NETAS + shift_value)
 datos$log_INFLACION <- log(datos$INFLACION+ shift_valueinf)
 datos$log_INGRESO_PER_CAPITA <- log(datos$INGRESO_PER_CAPITA)
+} # Transformación de valores
 
 # Regresión en dos etapas -------------------------------------------------
 # Etapa 1: Ajustar el modelo de regresión para consumo
@@ -94,6 +96,7 @@ vif(modelo_etapa1)
 # Pruea de colinealidad (Prueba VIF) para el modelo de la etapa 2
 vif(modelo_indice_pib)
 }
+
 # Prueba de heterocedasticidad 
 {
 # Para el modelo de la etapa 1
@@ -102,6 +105,7 @@ bptest(modelo_etapa1)
 # Prueba el omdelo de la etapa 2
 bptest(modelo_indice_pib)
 }
+
 # Prueba de autocorrelación
 {
 # Para el modelo 1
@@ -110,6 +114,7 @@ dwtest(modelo_etapa1)
 # Para el modelo 2
 dwtest(modelo_indice_pib)
 }
+
 # EXPORTAR DATOS ----------------------------------------------------------
 # Exportar los resultados en formato Word
 {
@@ -131,7 +136,10 @@ tab_model(modelo_etapa1, modelo_indice_pib,
           show.se = TRUE,  # Muestra errores estándar
           file = "resultados_regresion2.doc")  # Exporta a Word
 } # Opción 2
+
+
 # MATRIZ DE CORRELACION ---------------------------------------------------
+{
 # Creación de base de variables para matriz de correlacion
 Bs_correlacion<-data.frame(PIB=datos$PIB,
                            CONSUMO=datos$CONSUMO,
@@ -156,11 +164,12 @@ ggplot(cor_melt, aes(x = Var1, y = Var2, fill = value)) +
 
 #Grafico de matriz de correlacion
 corrplot(Matriz_Correl)
+}
+
 
 # LINEA DE TIEMPO ---------------------------------------------------------
 {
-  # Linea de tiempo para el gasto público
-ggplot(data = datos, aes(x = TIEMPO, y = GASTO_PUBLICO)) +
+ggplot(data = datos, aes(x = TIEMPO, y = log_CONSUMO)) +
   geom_line(color = "blue", size = 1.2) +    # Línea azul
   geom_point(color = "red", size = 3) +      # Puntos rojos
   labs(title = "Evolución del Gasto Público", 
@@ -168,10 +177,22 @@ ggplot(data = datos, aes(x = TIEMPO, y = GASTO_PUBLICO)) +
        y = "Gasto Público (en millones)") +
   theme_minimal() +                          # Tema visual minimalista
   theme()
-}# Gráfico para el gasto público
+}# Gráfico para el Connsumo
+
+{
+ggplot(data = datos, aes(x = TIEMPO, y = log_PIB)) +
+  geom_line(color = "blue", size = 1.2) +    # Línea azul
+  geom_point(color = "red", size = 3) +      # Puntos rojos
+  labs(title = "Evolución del Gasto Público", 
+       x = "Año", 
+       y = "Gasto Público (en millones)") +
+  theme_minimal() +                          # Tema visual minimalista
+  theme()
+}# Gráfico para el pib
+
 {
 # Linea de tiempo para las REMESAS
-ggplot(data = datos, aes(x = TIEMPO, y = REMESAS)) +
+ggplot(data = datos, aes(x = TIEMPO, y = log_REMESAS)) +
   geom_line(color = "blue", size = 1.2) +    # Línea azul
   geom_point(color = "red", size = 3) +      # Puntos rojos
   labs(title = "Evolución de las remesas", 
@@ -181,3 +202,16 @@ ggplot(data = datos, aes(x = TIEMPO, y = REMESAS)) +
   theme()
 }# Gráfico para las remesas
 
+# Línea de evolución
+{
+ggplot(datos, aes(x = TIEMPO)) +
+  geom_line(aes(y = log_REMESAS, color = "REMESAS"), size = 1.2) +
+  geom_line(aes(y = log_PIB, color = "PIB"), size = 1.2) +
+  geom_line(aes(y = log_CONSUMO, color = "CONSUMO"), size = 1.2) +
+  labs(title = "Evolución de REMESAS, PIB y CONSUMO a lo largo del tiempo",
+       x = "Año",
+       y = "Valor") +
+  scale_color_manual(values = c("REMESAS" = "blue", "PIB" = "yellow", "CONSUMO" = "red"),
+                     name = "Variable") +
+  theme_minimal()
+}

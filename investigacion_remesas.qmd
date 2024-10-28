@@ -258,7 +258,15 @@ Con un $R^{2}$ ajustado del modelo de .9968 puntos decimales, se sugiere que cas
 
 # Discusión
 
-_"Programas que impulsando la diverificación de las remesas en los hogares en otros países"_ "[Por agregar]"
+En Ecuador, varios bancos han desarrollado programas orientados a fomentar el ahorro y la administración adecuada de las remesas, en beneficio de las familias receptoras. Estos esfuerzos no solo buscan brindar acceso a servicios financieros básicos, sino también construir una cultura financiera que impulse el desarrollo económico. A continuación, se describen algunos de estos programas y se analiza el potencial de replicarlos en cooperativas para alcanzar a más personas y generar un impacto aún mayor.
+
+## Análisis de los programas actuales en las instituciones financieras ecuatorianas
+
+- **Banco Pichincha:** *"Programas de Ahorro"* El Banco Pichincha ha creado un programa de ahorro específico para remesas, que permite a los clientes reservar una parte de sus ingresos, promoviendo así la estabilidad financiera. Este enfoque impulsa el desarrollo de un fondo de emergencia o un capital que, a futuro, puede ser destinado a inversiones importantes o situaciones imprevistas. El programa ayuda a las familias a utilizar las remesas de manera estratégica, convirtiéndolas en una herramienta de ahorro e inversión en lugar de gastos inmediatos.
+
+- **Banco de Guayaquil:** *"Educación Financiera en Giros"* Banco de Guayaquil, además de ofrecer giros sin costos adicionales, incorpora educación financiera en su programa. Este componente educativo ayuda a los receptores de remesas a gestionar adecuadamente sus recursos, promoviendo prácticas financieras saludables como el ahorro y el uso prudente del crédito. Esto reduce el riesgo de endeudamiento y genera un impacto positivo en la economía local, al fortalecer las finanzas familiares y fomentar un consumo responsable.
+
+- **Banco del Pacífico:** *"Cuenta Remesas"* Banco del Pacífico ofrece la "Cuenta Remesas," que facilita el proceso de recepción de dinero del exterior sin depósito inicial, haciendo el servicio accesible a una mayor cantidad de personas. La rapidez en la disponibilidad de los fondos, junto con alianzas con remesadores internacionales, facilita a los beneficiarios la planificación de sus finanzas. La cuenta brinda opciones de ahorro y es una puerta de entrada a otros servicios financieros, integrando así a los receptores de remesas al sistema financiero.
 
 # Conclusiones
 
