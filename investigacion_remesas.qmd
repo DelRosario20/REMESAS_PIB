@@ -181,13 +181,23 @@ Los modelos de regresión escalonada en dos etapas aplicados dentro del estudio 
 
 En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obteniendo resultados que sugieren cómo las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de las remesas evaluado mediante la variable *"log(REMESAS)"* de 0.2022 puntos decimales, lo cual implica que un incremento de 1 punto porcentual en las remesas está asociado con un incremento aproximado de 0.21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un *"p-value"* de 0.000188 puntos decimales, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
 
-a
 
-a
+‎ 
 
-a
+‎ 
 
-a
+‎ 
+
+‎ 
+
+
+
+
+
+
+
+
+
 
 Gráfica 2: Gráfico del modelo de regresión - Etapa 1
 
