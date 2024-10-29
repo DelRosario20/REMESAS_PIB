@@ -59,10 +59,6 @@ modelo_etapa1 <- lm(log_CONSUMO ~ log_REMESAS + log_INFLACION + log_INGRESO_PER_
 # Extraer los valores ajustados (consumo estimado a partir de remesas)
 datos$consumo_ajustado <- exp(modelo_etapa1$fitted.values)
 
-#Independiente entre remesas y PIB
-
-modelo_remesas_pib <- lm(REMESAS~PIB, data = datos)
-
 # Etapa 2: Ajustar el modelo de regresión para el PIB usando el consumo ajustado
 
 modelo_indice_pib <- lm(log_PIB ~ log(consumo_ajustado) + log_GASTO_PUBLICO + log_INVERSION + log_EXPORTA_NETAS, data = datos)
@@ -124,8 +120,8 @@ stargazer(modelo_etapa1, modelo_indice_pib,
           title = "Resultados de las Regresiones en Dos Etapas",
           align = TRUE, 
           dep.var.labels = c("Consumo Ajustado", "PIB"),
-          covariate.labels = c("Remesas", "Consumo Ajustado"),
-          out = "resultados_regresion1.html")  # Cambiar extensión según formato
+          covariate.labels = c("log_REMESAS", "log_INFLACION"),
+          out = "resultados_regresion1.doc")  # Cambiar extensión según formato
 } # Opción 1
 {
 # Crear tabla para los modelos y exportarla a Word
@@ -211,7 +207,7 @@ ggplot(datos, aes(x = TIEMPO)) +
   labs(title = "Evolución de REMESAS, PIB y CONSUMO a lo largo del tiempo",
        x = "Año",
        y = "Valor") +
-  scale_color_manual(values = c("REMESAS" = "blue", "PIB" = "yellow", "CONSUMO" = "red"),
+  scale_color_manual(values = c("REMESAS" = "blue", "PIB" = "#8B7500", "CONSUMO" = "red"),
                      name = "Variable") +
   theme_minimal()
 }
