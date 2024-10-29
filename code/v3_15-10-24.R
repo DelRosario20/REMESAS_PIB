@@ -26,10 +26,10 @@ library(car)
 library(lmtest)
 }
 {
-atos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIADO.xlsx")
+datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIADO.xlsx")
 # Limpieza de datos
-datos$TIEMPO <- as.Date(datos$TIEMPO)
-
+datos$TIEMPO <- as.Date(paste0(datos$TIEMPO, "-01-01"))
+  
 # Tratamiento para variable de exportaciones netas
 datos$EXPORTA_NETAS <- datos$EXPORTACIONES-datos$IMPORTACIONES
 
@@ -172,7 +172,7 @@ corrplot(Matriz_Correl)
 ggplot(data = datos, aes(x = TIEMPO, y = log_CONSUMO)) +
   geom_line(color = "blue", size = 1.2) +    # Línea azul
   geom_point(color = "red", size = 3) +      # Puntos rojos
-  labs(title = "Evolución del Gasto Público", 
+  labs(title = "Evolución del Consumo", 
        x = "Año", 
        y = "Gasto Público (en millones)") +
   theme_minimal() +                          # Tema visual minimalista
@@ -183,7 +183,7 @@ ggplot(data = datos, aes(x = TIEMPO, y = log_CONSUMO)) +
 ggplot(data = datos, aes(x = TIEMPO, y = log_PIB)) +
   geom_line(color = "blue", size = 1.2) +    # Línea azul
   geom_point(color = "red", size = 3) +      # Puntos rojos
-  labs(title = "Evolución del Gasto Público", 
+  labs(title = "Evolución del PIB", 
        x = "Año", 
        y = "Gasto Público (en millones)") +
   theme_minimal() +                          # Tema visual minimalista
