@@ -208,6 +208,5 @@ ggplot(datos, aes(x = TIEMPO)) +
        x = "Año",
        y = "Valor") +
   scale_color_manual(values = c("REMESAS" = "blue", "PIB" = "#8B7500", "CONSUMO" = "red"),
-                     name = "Variable") +
-  theme_minimal()
+                     name = "Variable")
 }

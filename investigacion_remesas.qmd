@@ -2,7 +2,7 @@
 title: "**Contribución de las Remesas al Consumo y su Impacto en el Crecimiento Económico del Ecuador entre 2010 y 2022**"
 author: "**Autor:** Del Rosario, Alan; adelr3@unemi.edu.ec\\
 
-  **Co-autor(es):** Bravo, Kerly;\\
+  **Co-autor(es):** Bravo, Kerly; kbravoj@unemi.edu.ec\\
   
   **Orientador/a:**\\
   "
@@ -129,7 +129,7 @@ Donde:
 
 **Tramiento de la información**
 
-Para el tratamiento de la información emitida por el Banco Central del Ecuador, se llevó a cabo un proceso sistemático de limpieza y transformación de los datos con el objetivo de asegurar su adecuación para el análisis estadístico y su interpretación robusta. En primera lugar, se estandarizó el formato de la variable temporal, convirtiéndola a tipo de dato en formato de fecha. Esto permitió organizar cronológicamente los registros, facilitando el seguimiento de la evolución de las variables en el tiempo y asegurando la consistencia en su análisis.
+Para el tratamiento de la información emitida por el Banco Central del Ecuador, se llevó a cabo un proceso sistemático de limpieza y transformación de los datos con el objetivo de asegurar su adecuación para el análisis estadístico y su interpretación. En primera lugar, se estandarizó el formato de la variable temporal, convirtiéndola a tipo de dato en formato de fecha. Esto permitió organizar cronológicamente los registros, facilitando el seguimiento de la evolución de las variables en el tiempo y asegurando la consistencia en su análisis.
 
 En cuanto a las exportaciones netas, se calculó esta variable como la diferencia entre las exportaciones y las importaciones. Dado que el análisis logarítmico requiere que todos los valores sean positivos, fue necesario determinar el valor mínimo de la variable *"EXPORTA_NETAS"*. A fin de evitar problemas de logaritmización sobre valores negativos o nulos, se aplicó un desplazamiento positivo equivalente al valor absoluto del mínimo más una unidad. Este ajuste garantiza que todos los datos de exportaciones netas sean positivos, permitiendo su correcta transformación logarítmica y mejorando la interpretación de variaciones proporcionales.
 
@@ -192,7 +192,7 @@ Tabla 1: Resultado de la regresión de dos etapas
 
 Interpretación de resultados:
 
-Los modelos de regresión escalonada en dos etapas aplicados dentro del estudio permitieron la evaluación detallada del impacto de las remesas sobre el consumo y cómo esta relación repercute signicativamente dentro del PIB de Ecuador entre 2010 y 2022. Los modelos propuestos fueron sujetos a evaluaciones de rigidez estadística para garantizar la robustez de los resultados mediante pruebas de colinealidad, heterocedastidad y autocorrelación, las cuáles impulsan la validez de los modelos aplicados.
+Los modelos de regresión escalonada en dos etapas aplicados dentro del estudio permitieron la evaluación detallada del impacto de las remesas sobre el consumo y cómo esta relación repercute signicativamente dentro del PIB de Ecuador entre 2010 y 2022. Los modelos propuestos fueron sujetos a evaluaciones de rigidez estadística para garantizar la validez de los resultados mediante pruebas de colinealidad, heterocedastidad y autocorrelación, las cuáles impulsan la validez de los modelos aplicados.
 
 En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obtendo resultados que sugieren cómo las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de las remesas evaluado mediante la variable *"log(REMESAS)"* de 0.2022 puntos decimales, lo cual implica que un incremento de 1 punto porcentual en las remesas está asociado con un incremento aproximado de 0.21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un *"p-value"* de 0.000188 puntos decimales, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
 
@@ -242,6 +242,12 @@ Tabla 2: Resultado de prueba VIF
 Los resultados del VIF para ambas etapas del estudio determinan valores inferiores a 5, lo que indica una baja colinealidad entre las variables independientes. Este resultado sugiere que no existe reducción estadística significativa entre las variables explicativas.
 
 Para la detección de heterocedasticidad dentro del modelo, se aplicó la prueba de Breush-Pagan, la cual evalúa si la varianza de los errores es constante.
+
+a
+
+a
+
+a
 
 Tabla 3: Prueba de Breush-Pagan
 
