@@ -143,7 +143,7 @@ Se presenta el comportamiento temporal de las principales variables económicas:
 
 Gráfica 1: Comparación de las variables de estudio y su evolución
 
-![](IMAGENES/evolucion_r_pib_c.png)
+![](IMAGENES/evolucion_r_pib_c.png){width=93%}
 
 
 a
@@ -197,17 +197,24 @@ Los modelos de regresión escalonada en dos etapas aplicados dentro del estudio 
 
 En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obtendo resultados que sugieren cómo las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de las remesas evaluado mediante la variable *"log(REMESAS)"* de 0.2022 puntos decimales, lo cual implica que un incremento de 1 punto porcentual en las remesas está asociado con un incremento aproximado de 0.21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un *"p-value"* de 0.000188 puntos decimales, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
 
+a
+
+a
+
+a
+
 Gráfica 2: Gráfico del modelo de regresión - Etapa 1
 
-![](IMAGENES/consumo_remesas.png)
+![](IMAGENES/consumo_remesas.png){width=93%}
+
+Gráfica 3: Gráfico del modelo de regresión - Etapa 2
+
+![](IMAGENES/consumo_ajustado_pib.png){width=93%}
 
 En la segunda etapa del modelo, se examinó como el consumo, impulsado en parte por las remesas, tiene incidencia sobre el PIB, evaluando variables adicionales como el gasto público, la inversión y las exportaciones netas. El coeficiente que evalúa la contribución de este consumo ajustado por remesas, denotado con la variable *"log(consumo ajustado)"* de 0.7253 con un valor *"p"* altamente significativo, sugiere una relación positiva entre el consumo ajustado por remesas y el PIB.
 
 Adicionalmente, como variables independientes consderadas se obtuvo que para el gasto público con un coeficiente de 0.2911 puntos tiene un efecto positivo, respaldado con un valor *"p"* significativo, indicando que el gasto del estado actua como un impulso en el crecimiento económico. Pesé que, las demas variables independienes no tienen una contribución estadística significativa en el modelo, siguen representando contribuciones positivas del comercio exterior y la inversión al PIB del Ecuador. 
 
-Gráfica 3: Gráfico del modelo de regresión - Etapa 2
-
-![](IMAGENES/consumo_ajustado_pib.png)
 
 Con un $R^{2}$ ajustado del modelo de 0.9968 puntos decimales, se sugiere que casi en su totalidad de la variabilidad en el PIB puede ser explicada por las variables integradas dentro del modelo, ejerciendo significancia mediante la solidez del modelo y la dependencia del crecimiento económico en factores internos, en el caso del presente estudio el consumo, en el Ecuador.
 
