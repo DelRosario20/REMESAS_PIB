@@ -203,6 +203,8 @@ a
 
 a
 
+a
+
 Gráfica 2: Gráfico del modelo de regresión - Etapa 1
 
 ![](IMAGENES/consumo_remesas.png){width=93%}
@@ -243,8 +245,6 @@ Tabla 2: Resultado de prueba VIF
 Los resultados del VIF para ambas etapas del estudio determinan valores inferiores a 5, lo que indica una baja colinealidad entre las variables independientes. Este resultado sugiere que no existe reducción estadística significativa entre las variables explicativas.
 
 Para la detección de heterocedasticidad dentro del modelo, se aplicó la prueba de Breush-Pagan, la cual evalúa si la varianza de los errores es constante.
-
-a
 
 a
 
