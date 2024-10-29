@@ -203,8 +203,6 @@ a
 
 a
 
-a
-
 Gráfica 2: Gráfico del modelo de regresión - Etapa 1
 
 ![](IMAGENES/consumo_remesas.png){width=93%}
