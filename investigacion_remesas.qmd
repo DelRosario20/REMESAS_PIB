@@ -142,31 +142,15 @@ Para profundizar la interpretación del comportamiento de las principales variab
 
 **Tendencias de las variables**
 
-Se presenta el comportamiento temporal de las principales variables económicas: remesas, consumo y Producto Interno Bruto (PIB). Este análisis permite observar patrones, estacionalidades y posibles ciclos económicos, así como identificar tendencias que podrían influir en la interpretación de sus impactos en el marco económico del Ecuador.
+Se presenta el comportamiento temporal de las principales variables económicas: remesas, consumo y PIB. Este análisis permite observar patrones, estacionalidades y posibles ciclos económicos, así como identificar tendencias que podrían influir en la interpretación de sus impactos en el marco económico del Ecuador.
 
 Gráfica 1: Comparación de las variables de estudio y su evolución
 
 ![](IMAGENES/evolucion_r_pib_c.png){width=93%}
 
+El gráfico 1 muestra la evolución de las remesas, el PIB y el consumo en Ecuador desde 2010 hasta 2022. La correlación que existe entre las remesas y el consumo muestra la función que desempeñan como mecanismo de protección económica, especialmente durante momentos de crisis económicas como la pandemia, la disminución en los precios del petróleo en 2015, el terremoto ocurrido en 2016 y las manifestaciones de 2019. Observamos que las remesas presentan un crecimiento notable y constante en este periodo, con un incremento más acelerado a partir de 2020. Este aumento en las remesas coincide con la pandemia de COVID-19, durante la cual muchos migrantes incrementaron el envío de dinero a sus familias en Ecuador, lo que ayudó a mitigar los efectos negativos de la crisis sanitaria sobre el consumo y el PIB.
 
-a
-
-a
-
-a
-
-a
-
-a
-
-a
-
-a
-
-a
-
-a
-
+En general, el gráfico sugiere que las remesas han jugado un rol estabilizador, impulsando el consumo de los hogares y ayudando al crecimiento del PIB durante los últimos años, especialmente en tiempos de crisis.
 
 # Resultados y discusión
 
@@ -242,13 +226,12 @@ Tabla 2: Resultado de prueba VIF
 |Inversión               |1.221706|
 |Exportaciones netas     |1.110552|
 
-Los resultados del VIF para ambas etapas del estudio determinan valores inferiores a 5, lo que indica una baja colinealidad entre las variables independientes. Este resultado sugiere que no existe reducción estadística significativa entre las variables explicativas.
+Los resultados del VIF para ambas etapas del estudio determinan valores inferiores a 5, lo que indica una baja colinealidad entre las variables independientes. Este resultado es altamente favorable, siendo que indica una baja multicolinealidad entre las variables independientes. Por tanto, las variables explicativas no están excesivamente correlacionadas entre sí, lo cual es un requisito fundamental para la validez de un modelo de regresión
 
 Para la detección de heterocedasticidad dentro del modelo, se aplicó la prueba de Breush-Pagan, la cual evalúa si la varianza de los errores es constante.
 
-a
+Teniendo así, la veracidad de los valores del modelo tiene un comportamiento constante en sus errores.
 
-a
 
 Tabla 3: Prueba de Breush-Pagan
 
