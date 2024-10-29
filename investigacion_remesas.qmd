@@ -1,10 +1,11 @@
 ---
 title: "**Contribución de las Remesas al Consumo y su Impacto en el Crecimiento Económico del Ecuador entre 2010 y 2022**"
-author: "**Autor:** Del Rosario, Alan; adelr3@unemi.edu.ec\\
-
-  **Co-autor(es):** Bravo, Kerly; kbravoj@unemi.edu.ec\\
+author: "
+  Autor: Del Rosario, Alan; adelr3@unemi.edu.ec\\
   
-  **Orientador/a:**\\
+  Co-autor(es): Bravo, Kerly; kbravoj@unemi.edu.ec\\
+  
+  Orientador/a:\\
   "
 format: 
   pdf: 
@@ -20,8 +21,10 @@ format:
       - \usepackage[spanish]{babel}
       - \usepackage{csquotes}
       - \usepackage{setspace}
-      - \setlength{\parindent}{0.5in}  # Sangría de 0.5 pulgadas
-      - \usepackage[letterpaper,margin=1in, centering]{geometry}
+      - \usepackage{ragged2e} # Paquete para alineación izquierda
+      - \RaggedRight # Aplicar alineación a la izquierda
+      - \setlength{\parindent}{0.6in}  # Sangría de 0.5 pulgadas
+      - \usepackage[letterpaper, margin=1in, left=1in]{geometry}
 bibliography: refs.bib
 fontsize: 11pt
 ---
@@ -31,7 +34,7 @@ fontsize: 11pt
 \end{center}
 
 \begin{abstract}
-Este estudio examina la contribución de las remesas al consumo de los hogares así como su impacto en el crecimiento económico de Ecuador durante el periodo 2010-2022. Para ello, se implementa un enfoque econométrico basado en dos modelos de regresión lineal múltiple en dos etapas para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en qué el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, sugiriendo que el crecimiento económico se ve afeectado por las variaciones en el consumo privado. Los hallazgos sugieren que las remesas tienen un efecto positivo significativo sobre el consumo, el cual, a su vez, impulsa el crecimiento del PIB del Ecuador.
+Este estudio examina la contribución de las remesas al consumo de los hogares así como su impacto en el crecimiento económico de Ecuador durante el periodo 2010-2022. Para ello, se implementa un enfoque econométrico basado en dos modelos de regresión lineal múltiple en dos etapas para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en qué el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, sugiriendo que el crecimiento económico se ve afectado por las variaciones en el consumo privado. Los hallazgos sugieren que las remesas tienen un efecto positivo significativo sobre el consumo, el cual, a su vez, impulsa el crecimiento del PIB del Ecuador.
 \end{abstract}
 
 **Palabras clave:** Crecimiento económico, remesas, consumo
@@ -56,16 +59,16 @@ Este estudio profundiza en la contribución de las remesas al consumo de los hog
 
 **Objetivo general**
 
-Analizar la contiribución de las remesas al consumo de los hogares en Ecuador y su impacto en el crecimiento económico del país durante el período 2010-2022. Buscando determinar en qué medida el ingreo proviente de remesas influye significativamente en el comportamiento del consumo de los hogares ecuatorianos receptores de estos valores, así como la relación indirecta entre el consumo impulsado por remesas y PIB del país. 
+Analizar la contribución de las remesas al consumo de los hogares en Ecuador y su impacto en el crecimiento económico del país durante el período 2010-2022. Buscando determinar en qué medida el ingreso proviene de remesas influye significativamente en el comportamiento del consumo de los hogares ecuatorianos receptores de estos valores, así como la relación indirecta entre el consumo impulsado por remesas y PIB del país. 
 
 **Objetivos específicos**
 
 - Evaluar el efecto de las remesas sobre el consumo de los hogares en Ecuador, identificando la magnitud del ingreso adicional proveniente de remesas tiene sobre el gasto de las familias receptoras.
 - Determinar la relación entre el consumo derivado de las remesas y el crecimiento económico, analizando cómo las variaciones en el consumo privado influencian en el PIB del país.
 - Identificar las tendencias y variaciones en la recepción de remesas durante el periodo de estudio, considerando los factores externos e internos que han influido en estos flujos de capital.
--Proponer políticas de diversificación en el uso de remesas por parte de los hogares mediante programas, leyes o herramientas adecuadas, de acuerdo con el análisis de los resultados obtenidos.
+- Proponer políticas de diversificación en el uso de remesas por parte de los hogares mediante programas, leyes o herramientas adecuadas, de acuerdo con el análisis de los resultados obtenidos.
 
-# Materiales y métododos
+# Materiales y métodos
 
 El estudio emplea un modelo en dos etapas o regresión escalonada, con la finalidad de analizar el impacto de las remesas en el consumo de manera individual y, posteriormente, evaluar cómo esta relación influye en el PIB.
 
@@ -127,11 +130,11 @@ Donde:
 
 - **$\varepsilon_2$**: Término de error del modelo
 
-**Tramiento de la información**
+**Tratamiento de la información**
 
-Para el tratamiento de la información emitida por el Banco Central del Ecuador, se llevó a cabo un proceso sistemático de limpieza y transformación de los datos con el objetivo de asegurar su adecuación para el análisis estadístico y su interpretación. En primera lugar, se estandarizó el formato de la variable temporal, convirtiéndola a tipo de dato en formato de fecha. Esto permitió organizar cronológicamente los registros, facilitando el seguimiento de la evolución de las variables en el tiempo y asegurando la consistencia en su análisis.
+Para el tratamiento de la información emitida por el Banco Central del Ecuador, se llevó a cabo un proceso sistemático de limpieza y transformación de los datos con el objetivo de asegurar su adecuación para el análisis estadístico y su interpretación. En primer lugar, se estandarizó el formato de la variable temporal, convirtiéndola a tipo de dato en formato de fecha. Esto permitió organizar cronológicamente los registros, facilitando el seguimiento de la evolución de las variables en el tiempo y asegurando la consistencia en su análisis.
 
-En cuanto a las exportaciones netas, se calculó esta variable como la diferencia entre las exportaciones y las importaciones. Dado que el análisis logarítmico requiere que todos los valores sean positivos, fue necesario determinar el valor mínimo de la variable *"EXPORTA_NETAS"*. A fin de evitar problemas de logaritmización sobre valores negativos o nulos, se aplicó un desplazamiento positivo equivalente al valor absoluto del mínimo más una unidad. Este ajuste garantiza que todos los datos de exportaciones netas sean positivos, permitiendo su correcta transformación logarítmica y mejorando la interpretación de variaciones proporcionales.
+En cuanto a las exportaciones netas, se calculó esta variable como la diferencia entre las exportaciones y las importaciones. Dado que el análisis logarítmico requiere que todos los valores sean positivos, fue necesario determinar el valor mínimo de la variable *"EXPORTA_NETAS"*. A fin de evitar problemas de logaritmación sobre valores negativos o nulos, se aplicó un desplazamiento positivo equivalente al valor absoluto del mínimo más una unidad. Este ajuste garantiza que todos los datos de exportaciones netas sean positivos, permitiendo su correcta transformación logarítmica y mejorando la interpretación de variaciones proporcionales.
 
 Un tratamiento similar fue aplicado a la variable de inflación. Dado que, los valores de esta variable también pueden incluir negativos o ceros, se identificó su valor mínimo y se añadió un desplazamiento positivo de igual manera. Este ajuste posibilita la transformación logarítmica de la inflación, lo que resulta en una representación de cambios proporcionales sin los sesgos que los valores extremos podrían introducir en la interpretación de los resultados.
 
@@ -190,11 +193,11 @@ Tabla 1: Resultado de la regresión de dos etapas
 |Adjusted R2           |0.933        |              |      |0.997       |             |        |  
 
 
-Interpretación de resultados:
+Los modelos de regresión escalonada en dos etapas aplicados dentro del estudio permitieron la evaluación detallada del impacto de las remesas sobre el consumo y cómo esta relación repercute significativamente dentro del PIB de Ecuador entre 2010 y 2022. Los modelos propuestos fueron sujetos a evaluaciones de rigidez estadística para garantizar la validez de los resultados mediante pruebas de colinealidad, heterocedasticidad y autocorrelación, las cuáles impulsan la validez de los modelos aplicados.
 
-Los modelos de regresión escalonada en dos etapas aplicados dentro del estudio permitieron la evaluación detallada del impacto de las remesas sobre el consumo y cómo esta relación repercute signicativamente dentro del PIB de Ecuador entre 2010 y 2022. Los modelos propuestos fueron sujetos a evaluaciones de rigidez estadística para garantizar la validez de los resultados mediante pruebas de colinealidad, heterocedastidad y autocorrelación, las cuáles impulsan la validez de los modelos aplicados.
+En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obteniendo resultados que sugieren cómo las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de las remesas evaluado mediante la variable *"log(REMESAS)"* de 0.2022 puntos decimales, lo cual implica que un incremento de 1 punto porcentual en las remesas está asociado con un incremento aproximado de 0.21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un *"p-value"* de 0.000188 puntos decimales, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
 
-En la primera etapa del modelo, se consideró la relación entre las remesas y el consumo, obtendo resultados que sugieren cómo las remesas tienen un impacto significativo y positivo en el consumo del Ecuador. Con un coeficiente de las remesas evaluado mediante la variable *"log(REMESAS)"* de 0.2022 puntos decimales, lo cual implica que un incremento de 1 punto porcentual en las remesas está asociado con un incremento aproximado de 0.21 puntos porcentuales en el consumo, manteniendo las demás variables constantes. Obteniendo significancia con un *"p-value"* de 0.000188 puntos decimales, evidenciando la importancia de las remesas como un factor de relevancia para la demanda interna del Ecuador.
+a
 
 a
 
@@ -212,7 +215,7 @@ Gráfica 3: Gráfico del modelo de regresión - Etapa 2
 
 En la segunda etapa del modelo, se examinó como el consumo, impulsado en parte por las remesas, tiene incidencia sobre el PIB, evaluando variables adicionales como el gasto público, la inversión y las exportaciones netas. El coeficiente que evalúa la contribución de este consumo ajustado por remesas, denotado con la variable *"log(consumo ajustado)"* de 0.7253 con un valor *"p"* altamente significativo, sugiere una relación positiva entre el consumo ajustado por remesas y el PIB.
 
-Adicionalmente, como variables independientes consderadas se obtuvo que para el gasto público con un coeficiente de 0.2911 puntos tiene un efecto positivo, respaldado con un valor *"p"* significativo, indicando que el gasto del estado actua como un impulso en el crecimiento económico. Pesé que, las demas variables independienes no tienen una contribución estadística significativa en el modelo, siguen representando contribuciones positivas del comercio exterior y la inversión al PIB del Ecuador. 
+Adicionalmente, como variables independientes consideradas se obtuvo que para el gasto público con un coeficiente de 0.2911 puntos tiene un efecto positivo, respaldado con un valor *"p"* significativo, indicando que el gasto del estado actúa como un impulso en el crecimiento económico. Pesé que, las demás variables independientes no tienen una contribución estadística significativa en el modelo, siguen representando contribuciones positivas del comercio exterior y la inversión al PIB del Ecuador. 
 
 
 Con un $R^{2}$ ajustado del modelo de 0.9968 puntos decimales, se sugiere que casi en su totalidad de la variabilidad en el PIB puede ser explicada por las variables integradas dentro del modelo, ejerciendo significancia mediante la solidez del modelo y la dependencia del crecimiento económico en factores internos, en el caso del presente estudio el consumo, en el Ecuador.
@@ -262,7 +265,7 @@ Tabla 3: Prueba de Breush-Pagan
 |BP                      |6.0648  |
 |p-value                 |0.1944  |
 
-Según los resultados de la prueba para evaluar la presencia de heterocedasticidad, se obtienen valores *"p"* mayores a 0.05 en ambas etapas del estudio. Esto sugiere que no encuentra evidencia estadística significativa de presencia de heterocedastiticidad; indicando así que los errores del modelo tienen varianza constante.
+Según los resultados de la prueba para evaluar la presencia de heterocedasticidad, se obtienen valores *"p"* mayores a 0.05 en ambas etapas del estudio. Esto sugiere que no se encuentra evidencia estadística significativa de presencia de heterocedasticidad; indicando así que los errores del modelo tienen varianza constante.
 
 Por último, se realizó la prueba de Durbin-Watson para determinar sí existe autocorrelación en los errores de los modelos. 
 
@@ -285,13 +288,13 @@ Los valores resultantes de la prueba de Durbin-Watson se encuentran cercanos a 2
 
 El estudio econométrico de las remesas en Ecuador confirma que estas representan una importante fuente de ingresos para los hogares, especialmente en momentos de crisis económica. No obstante, el caso de República Dominicana revela un aspecto que aún no se ha aprovechado plenamente en Ecuador: el uso productivo de las remesas. Aunque en ambos países gran parte de las remesas se destina al consumo, en República Dominicana se han establecido estrategias para redirigir una porción de estos fondos hacia la inversión.
 
-Este enfoque es particularmente relevante para Ecuador, donde la diversificación económica sigue siendo un reto. Implementar políticas similares podría permitir que las remesas no solo respalden el consumo, sino también impulsar un crecimiento económico sostenible a través de inversiones en sectores claves como la agricultura, el comercio y las pequeñas industrias, descrito por @zavala_experiencias_2006  . El documento “Estrategias para la Inversión” sugiere que un entorno financiero inclusivo, sumado a una mayor capacitación técnica y acceso al financiamiento, puede convertir los flujos de remesas en inversiones productivas, como lo sugieren @mendoza_cota_son_2008. En Ecuador, tales políticas podrían aplicarse en áreas rurales y urbanas desfavorecidas, donde las remesas representan una proporción significativa de los ingresos familiares.
+Este enfoque es particularmente relevante para Ecuador, donde la diversificación económica sigue siendo un reto. Implementar políticas similares podría permitir que las remesas no solo respalden el consumo, sino también impulsar un crecimiento económico sostenible a través de inversiones en sectores claves como la agricultura, el comercio y las pequeñas industrias, descrito por @zavala_experiencias_2006. El documento “Estrategias para la Inversión” sugiere que un entorno financiero inclusivo, sumado a una mayor capacitación técnica y acceso al financiamiento, puede convertir los flujos de remesas en inversiones productivas, como lo sugieren @mendoza_cota_son_2008. En Ecuador, tales políticas podrían aplicarse en áreas rurales y urbanas desfavorecidas, donde las remesas representan una proporción significativa de los ingresos familiares.
 
 De igual manera, la experiencia dominicana subraya la importancia de la educación financiera y el desarrollo de productos financieros que fomenten el ahorro y la inversión. En Ecuador, la baja inclusión financiera sigue siendo un obstáculo para aprovechar las remesas en actividades productivas. 
 
 Existen programas brindados en el país por varios bancos. El Banco Pichincha permite a los clientes ahorrar una porción de remesas recibidas por medio de sus programas de ahorro. El Banco de Guayaquil presenta Educación financiera- Giros, donde el dinero recibido del exterior no tiene costo, ni recargos, incluyendo educación financiera. El Banco del Pacífico se enfoca en brindar facilidad y rapidez en las transferencias de dinero, garantiza la disponibilidad de este el mismo día para el beneficiario, permite la acreditación automática de los giros, sin requerir un depósito inicial por medio de su programa Cuenta remesas.
 
-Ecuador para fortalecer aún más el impacto de las remesas en el desarrollo económico del país, podría considerar como estrategia programas de innovación tecnológica, creando plataformas digitales de inversión colaborativa, conectando a los receptores de remesas con proyectos de inversión en sectores como agricultura, comercio, turismo, entre otros, permitiéndoles apoyar pequeños negocios con aportaciones (microinversiones). La plataforma incluirá verificación de negocios para garantizar la legitimidad y viabilidad, educación financiera y actualizaciones en tiempo real sobre el progreso de las inversiones. Además, crear alianzas con los diferentes bancos para facilitar las transferencias directas de remesas a las inversiones en la plataforma. El gobierno por otro lado, podría ofrecer incentivos fiscales como la deducción fiscal sobre las ganancias obtenidas durante un determinado tiempo para impulsar el uso productivo de las remesas en la economía local.
+Ecuador para fortalecer aún más el impacto de las remesas en el desarrollo económico del país, podría considerar como estrategia programas de innovación tecnológica, creando plataformas digitales de inversión colaborativa, conectando a los receptores de remesas con proyectos de inversión en sectores como agricultura, comercio, turismo, entre otros, permitiéndoles apoyar pequeños negocios con aportaciones (micro inversiones). La plataforma incluirá verificación de negocios para garantizar la legitimidad y viabilidad, educación financiera y actualizaciones en tiempo real sobre el progreso de las inversiones. Además, crear alianzas con los diferentes bancos para facilitar las transferencias directas de remesas a las inversiones en la plataforma. El gobierno por otro lado, podría ofrecer incentivos fiscales como la deducción fiscal sobre las ganancias obtenidas durante un determinado tiempo para impulsar el uso productivo de las remesas en la economía local.
 
 # Conclusiones
 
