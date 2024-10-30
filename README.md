@@ -1,5 +1,3 @@
 # Proyecto de investigación para la feria de economía
 
-Saludos chicos, por este medio podrán ver los avances tanto de la parte teoríca como la parte estadística del proyeco de investigación con las actualizaciones más recientes acorde a los avances que vayamos teniendo. 
-
-Esto también les permite a los que están haciendo el apartado estadístico que puedan ver los comandos empleados y replicarlos desde sus dispositivos. 
+Este estudio examina la contribución de las remesas al consumo de los hogares así como su impacto en el crecimiento económico de Ecuador durante el periodo 2010-2022. Para ello, se implementa un enfoque econométrico basado en dos modelos de regresión lineal múltiple en dos etapas para comprender la relación indirecta entre las remesas y el Producto Interno Bruto (PIB). En la primera etapa, se evalúa el efecto de las remesas sobre el consumo de los hogares, determinando el grado en qué el ingreso adicional proveniente de remesas influye en el gasto de los hogares. En la segunda etapa, se estudia cómo el consumo resultante de las remesas afecta el PIB de Ecuador, sugiriendo que el crecimiento económico se ve afectado por las variaciones en el consumo privado. Los hallazgos sugieren que las remesas tienen un efecto positivo significativo sobre el consumo, el cual, a su vez, impulsa el crecimiento del PIB del Ecuador.
