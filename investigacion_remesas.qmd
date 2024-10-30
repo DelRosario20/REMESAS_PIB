@@ -5,7 +5,7 @@ author: "
   
   Co-autor(es): Bravo, Kerly; kbravoj@unemi.edu.ec\\
   
-  Orientador/a: Vasquez Mario; mvasquezb@unemi.edu.ec \\
+  Orientador/a: Vasquez, Mario; mvasquezb@unemi.edu.ec \\
   "
 format: 
   pdf: 
