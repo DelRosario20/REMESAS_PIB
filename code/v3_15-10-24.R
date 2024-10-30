@@ -199,14 +199,39 @@ ggplot(data = datos, aes(x = TIEMPO, y = log_REMESAS)) +
 }# Gráfico para las remesas
 
 # Línea de evolución
+
+
+
 {
-ggplot(datos, aes(x = TIEMPO)) +
-  geom_line(aes(y = log_REMESAS, color = "REMESAS"), size = 1.2) +
-  geom_line(aes(y = log_PIB, color = "PIB"), size = 1.2) +
-  geom_line(aes(y = log_CONSUMO, color = "CONSUMO"), size = 1.2) +
-  labs(title = "Evolución de REMESAS, PIB y CONSUMO a lo largo del tiempo",
-       x = "Año",
-       y = "Valor") +
-  scale_color_manual(values = c("REMESAS" = "blue", "PIB" = "#8B7500", "CONSUMO" = "red"),
-                     name = "Variable")
+  ggplot(datos, aes(x = TIEMPO)) +
+    geom_line(aes(y = log_REMESAS, color = "REMESAS"), size = 1.2) +
+    geom_line(aes(y = log_PIB, color = "PIB"), size = 1.2) +
+    geom_line(aes(y = log_CONSUMO, color = "CONSUMO"), size = 1.2) +
+    labs(title = "Evolución de REMESAS, PIB y CONSUMO a lo largo del tiempo",
+         x = "Año",
+         y = "Valor") +
+    scale_x_continuous(breaks = seq(min(datos$TIEMPO), max(datos$TIEMPO), by = 1)) + # Muestra todos los años
+    scale_color_manual(values = c("REMESAS" = "blue", "PIB" = "#8B7500", "CONSUMO" = "red"),
+                       name = "Variable") +
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45, hjust = 1, size = 8)) # Rotación y tamaño de etiquetas en x
 }
+
+
+{
+  ggplot(datos, aes(x = TIEMPO)) +
+    geom_line(aes(y = log_REMESAS, color = "REMESAS"), size = 1.2) +
+    geom_line(aes(y = log_PIB, color = "PIB"), size = 1.2) +
+    geom_line(aes(y = log_CONSUMO, color = "CONSUMO"), size = 1.2) +
+    labs(title = "Evolución de REMESAS, PIB y CONSUMO a lo largo del tiempo",
+         x = "Año",
+         y = "Valor") +
+    scale_x_continuous() + # Muestra cada dos años
+    theme_minimal() +
+    theme(axis.text.x = element_text(angle = 45)) # Rotación y tamaño de etiquetas en x
+}
+
+
+datos$TIEMPO
+
+
