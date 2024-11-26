@@ -27,6 +27,7 @@ library(lmtest)
 }
 {
 datos <- read_excel("C:/Users/USER/Documents/REMESAS_PIB/data/amplia/CIFRAS_PROJECT_AMPLIADO.xlsx")
+  
 # Limpieza de datos
 datos$TIEMPO <- as.Date(paste0(datos$TIEMPO, "-01-01"))
   
@@ -54,13 +55,12 @@ datos$log_INGRESO_PER_CAPITA <- log(datos$INGRESO_PER_CAPITA)
 
 # Regresión en dos etapas -------------------------------------------------
 # Etapa 1: Ajustar el modelo de regresión para consumo
-modelo_etapa1 <- lm(log_CONSUMO ~ log_REMESAS + log_INFLACION + log_INGRESO_PER_CAPITA , data = datos)
+modelo_etapa1 <- lm(log_CONSUMO ~ log_REMESAS + log_INFLACION + log_INGRESO_PER_CAPITA, data = datos)
 
 # Extraer los valores ajustados (consumo estimado a partir de remesas)
 datos$consumo_ajustado <- exp(modelo_etapa1$fitted.values)
 
 # Etapa 2: Ajustar el modelo de regresión para el PIB usando el consumo ajustado
-
 modelo_indice_pib <- lm(log_PIB ~ log(consumo_ajustado) + log_GASTO_PUBLICO + log_INVERSION + log_EXPORTA_NETAS, data = datos)
 
 # Ver los resultados del modelo final
@@ -72,17 +72,27 @@ summary(modelo_indice_pib)
 
 # Visualización de la relación
 # Visualización de la relación entre REMESAS y CONSUMO
-ggplot(datos, aes(x = CONSUMO, y = PIB)) +
+ggplot(datos, aes(x = log_REMESAS, y = log_CONSUMO)) +
   geom_point() +
   geom_smooth(method = "lm", col = "blue") +
-  labs(title = "Impacto de las REMESAS en el CONSUMO", x = "Consumo", y = "PIB")
+  labs(
+    title = "Impacto de las REMESAS en el CONSUMO",
+       x = "Remesas",
+       y = "Consumo",
+    caption = "Nota: Los valores están representados en escala  logarítmica"
+    )
 
 # Visualización de la relación entre CONSUMO_AJUSTADO y PIB
-ggplot(datos, aes(x = consumo_ajustado, y = PIB)) +
+ggplot(datos, aes(x = log(consumo_ajustado), y = log_PIB)) +
   geom_point() +
   geom_smooth(method = "lm", col = "blue") +
-  labs(title = "Impacto de las Consumo ajustado por remesas en el PIB", x = "Consumo ajustado", y = "PIB")
-  
+  labs(
+    title = "Impacto del consumo ajustado por remesas en el PIB",
+    x = "Consumo ajustado",
+    y = "PIB", 
+    caption = "Nota: Los valores están representados en escala logarítmica"
+  ) 
+
 # PRUEBAS DE ROBUSTEZ ----------------------------------------------------------
 # Prueba de colinealidad
 {
@@ -133,7 +143,6 @@ tab_model(modelo_etapa1, modelo_indice_pib,
           file = "resultados_regresion2.doc")  # Exporta a Word
 } # Opción 2
 
-
 # MATRIZ DE CORRELACION ---------------------------------------------------
 {
 # Creación de base de variables para matriz de correlacion
@@ -161,7 +170,6 @@ ggplot(cor_melt, aes(x = Var1, y = Var2, fill = value)) +
 #Grafico de matriz de correlacion
 corrplot(Matriz_Correl)
 }
-
 
 # LINEA DE TIEMPO ---------------------------------------------------------
 {
@@ -199,9 +207,6 @@ ggplot(data = datos, aes(x = TIEMPO, y = log_REMESAS)) +
 }# Gráfico para las remesas
 
 # Línea de evolución
-
-
-
 {
   ggplot(datos, aes(x = TIEMPO)) +
     geom_line(aes(y = log_REMESAS, color = "REMESAS"), size = 1.2) +
@@ -230,8 +235,3 @@ ggplot(data = datos, aes(x = TIEMPO, y = log_REMESAS)) +
     theme_minimal() +
     theme(axis.text.x = element_text(angle = 45)) # Rotación y tamaño de etiquetas en x
 }
-
-
-datos$TIEMPO
-
-
